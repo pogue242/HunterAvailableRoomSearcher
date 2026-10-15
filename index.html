@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Hunter Open Classrooms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3f2f7; --card:#ffffff; --ink:#1d1a24; --muted:#6f6880;
+    --purple:#5a2d86; --purple-deep:#3d1c63; --purple-soft:#ece4f6;
+    --free:#12805c; --free-soft:#e4f3ec; --busy:#7b5aa6; --busy-ink:#ffffff;
+    --warn-bg:#fff6e0; --warn-line:#efd9a2; --warn-ink:#5b4300;
+    --line:#e5e2ee; --shadow:0 1px 2px rgba(40,24,70,.06);
+    --sel:#f2a900; --now:#d6336c;
+    --sans:'Inter',system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mono:'Space Grotesk',ui-monospace,"Cascadia Mono",monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#16131c; --card:#211d29; --ink:#ece9f3; --muted:#a39cb3;
+      --purple:#b48ae6; --purple-deep:#d3b8f5; --purple-soft:#2e2540;
+      --free:#3fbf8c; --free-soft:#1d3329; --busy:#6d4f99; --busy-ink:#ffffff;
+      --warn-bg:#2d2513; --warn-line:#5a4720; --warn-ink:#f0d79a;
+      --line:#352f42; --shadow:0 1px 2px rgba(0,0,0,.35);
+      --sel:#ffc53d; --now:#ff6b9a;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#16131c; --card:#211d29; --ink:#ece9f3; --muted:#a39cb3;
+    --purple:#b48ae6; --purple-deep:#d3b8f5; --purple-soft:#2e2540;
+    --free:#3fbf8c; --free-soft:#1d3329; --busy:#6d4f99; --busy-ink:#ffffff;
+    --warn-bg:#2d2513; --warn-line:#5a4720; --warn-ink:#f0d79a;
+    --line:#352f42; --shadow:0 1px 2px rgba(0,0,0,.35);
+    --sel:#ffc53d; --now:#ff6b9a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--paper); color:var(--ink); font-family:var(--sans);
+    font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased;
+  }
+  [hidden]{display:none !important}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 16px 64px}
+  button{font:inherit; color:inherit}
+
+  header{
+    padding:22px 0 12px; display:flex; align-items:baseline;
+    justify-content:space-between; gap:8px 16px; flex-wrap:wrap;
+  }
+  .brand{font-family:var(--mono); font-weight:700; font-size:1.35rem; letter-spacing:-.01em}
+  .brand span{color:var(--purple)}
+  .datasrc{font-size:.82rem; color:var(--muted)}
+  .datasrc b{color:var(--ink); font-weight:600}
+
+  .caveat{
+    background:var(--warn-bg); border:1px solid var(--warn-line); color:var(--warn-ink);
+    border-radius:10px; padding:10px 14px; font-size:.88rem; margin-bottom:10px;
+  }
+  .caveat strong{font-weight:600}
+  .unparsed{font-size:.82rem; color:var(--muted); margin:0 0 10px}
+  .unparsed summary{cursor:pointer}
+  .unparsed ul{margin:6px 0 0; padding-left:20px}
+  .unparsed code{font-family:var(--mono); color:var(--ink)}
+
+  /* loader */
+  .loader{
+    margin:28px 0; padding:22px; background:var(--card); border:1px solid var(--line);
+    border-radius:12px; box-shadow:var(--shadow);
+  }
+  .loader h2{font-family:var(--mono); margin:0 0 6px; font-size:1.15rem}
+  .loader p{margin:0 0 12px; color:var(--muted); font-size:.92rem}
+  .loader code{font-family:var(--mono); color:var(--ink)}
+  .err{color:#c0392b; font-size:.88rem; margin-top:10px}
+
+  /* controls */
+  .controls{
+    position:sticky; top:0; z-index:5; background:var(--paper);
+    padding:10px 0 12px; border-bottom:1px solid var(--line);
+    display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; align-items:end;
+  }
+  .field{display:flex; flex-direction:column; gap:5px; min-width:0}
+  .field > label, .field > .lbl{font-size:.74rem; color:var(--muted); font-weight:500}
+  .field select, .field input[type=time], .field input[type=date]{
+    font-family:var(--sans); font-size:.95rem; color:var(--ink);
+    background:var(--card); border:1px solid var(--line); border-radius:9px;
+    padding:8px 10px; width:100%; min-height:40px; box-shadow:var(--shadow);
+  }
+  .field select{appearance:none; background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%); background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%; background-size:5px 5px; background-repeat:no-repeat; padding-right:26px}
+  .field select:focus, .field input:focus, .btn:focus-visible, .chip:focus-visible, .cell:focus-visible, .blk:focus-visible, .rno:focus-visible{
+    outline:2px solid var(--purple); outline-offset:1px;
+  }
+  .check{display:flex; align-items:center; gap:7px; font-size:.86rem; min-height:40px; cursor:pointer}
+  .check input{width:17px; height:17px; accent-color:var(--purple); margin:0}
+  .weeknote{grid-column:1 / -1; font-size:.8rem; color:var(--muted); margin-top:-2px}
+  .weeknote b{color:var(--ink); font-weight:600}
+  .btn{
+    font-size:.85rem; font-weight:500; cursor:pointer; white-space:nowrap;
+    background:var(--card); color:var(--purple); border:1px solid var(--line);
+    border-radius:9px; padding:8px 12px; box-shadow:var(--shadow); min-height:40px;
+  }
+  .btn:hover{border-color:var(--purple)}
+  .btn[aria-pressed="true"]{background:var(--purple); color:var(--card); border-color:var(--purple)}
+  .btn.small{min-height:32px; padding:5px 10px; font-size:.8rem}
+  .filepick{display:none}
+
+  /* tabs */
+  .tabs{display:flex; gap:4px; margin:14px 0 4px; border-bottom:1px solid var(--line); overflow-x:auto}
+  .tab{
+    background:none; border:none; border-bottom:2px solid transparent; cursor:pointer;
+    padding:8px 12px; font-family:var(--mono); font-weight:600; font-size:.95rem; color:var(--muted);
+    white-space:nowrap;
+  }
+  .tab[aria-selected="true"]{color:var(--purple); border-bottom-color:var(--purple)}
+
+  .row{display:flex; gap:10px; flex-wrap:wrap; align-items:end; margin:12px 0}
+  .row .field{flex:0 1 150px}
+  .hint{font-size:.8rem; color:var(--muted)}
+
+  /* week grid */
+  .gridlayout{display:grid; grid-template-columns:minmax(0,1fr); gap:20px}
+  @media (min-width:900px){
+    .gridlayout{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+    .gridlayout .results{position:sticky; top:150px; max-height:calc(100vh - 170px); overflow:auto; padding-right:4px}
+  }
+  .week{display:grid; gap:2px; user-select:none; -webkit-user-select:none; font-size:.78rem}
+  .week .hd{
+    text-align:center; font-weight:600; font-family:var(--mono); padding:2px 0 4px; line-height:1.15;
+  }
+  .week .hd small{display:block; font-family:var(--sans); font-weight:400; color:var(--muted); font-size:.68rem}
+  .week .hd.off small{color:var(--now)}
+  .week .tlabel{color:var(--muted); text-align:right; padding-right:6px; font-size:.7rem; line-height:1; align-self:start; transform:translateY(-1px); white-space:nowrap}
+  .cell{
+    border:none; border-radius:4px; padding:0; cursor:pointer; min-height:22px;
+    font-family:var(--mono); font-size:.74rem; font-weight:600; touch-action:manipulation;
+    background:color-mix(in srgb, var(--free) var(--p), var(--card));
+    color:var(--ink); box-shadow:inset 0 0 0 1px var(--line);
+  }
+  .cell.dark{color:#fff}
+  .cell.zero{color:var(--muted); font-weight:500}
+  .cell.sel{box-shadow:inset 0 0 0 2px var(--sel), 0 0 0 1px var(--sel)}
+  .legend{display:flex; align-items:center; gap:8px; font-size:.76rem; color:var(--muted); margin:8px 0 0}
+  .legend i{display:inline-block; width:90px; height:10px; border-radius:3px;
+    background:linear-gradient(90deg,var(--card),var(--free)); box-shadow:inset 0 0 0 1px var(--line)}
+
+  /* result hero */
+  .summary{
+    font-family:var(--mono); font-weight:600; font-size:1.4rem;
+    letter-spacing:-.015em; margin:14px 0 2px; line-height:1.2;
+  }
+  .summary .n{color:var(--purple)}
+  .subline{color:var(--muted); font-size:.88rem; margin-bottom:8px}
+
+  .bldg{margin-top:18px}
+  .bldg h3{
+    font-family:var(--mono); font-weight:600; font-size:1rem; margin:0 0 2px;
+    color:var(--purple-deep);
+  }
+  .floor{display:flex; align-items:flex-start; gap:12px; padding:9px 0; border-top:1px solid var(--line)}
+  .bldg h3 + .floor{border-top:none}
+  .floor-tag{font-size:.72rem; color:var(--muted); font-weight:500; width:44px; flex:none; padding-top:4px}
+  .rooms{display:flex; flex-direction:column; gap:9px; flex:1; min-width:0}
+  .room{display:flex; align-items:center; gap:12px}
+  .rno{
+    font-family:var(--mono); font-weight:600; font-size:1rem; min-width:76px; flex:none;
+    background:none; border:none; padding:0; text-align:left; cursor:pointer; color:var(--ink);
+    text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:3px;
+  }
+  .rno:hover{text-decoration-color:var(--purple); color:var(--purple)}
+  .status{flex:1; min-width:0}
+  .until{font-size:.86rem}
+  .until .rest{color:var(--free); font-weight:600}
+  .meter{height:5px; border-radius:3px; background:var(--free-soft); margin-top:5px; overflow:hidden}
+  .meter i{display:block; height:100%; background:var(--free); border-radius:3px}
+
+  .empty{
+    margin-top:18px; padding:18px; background:var(--card); border:1px solid var(--line);
+    border-radius:12px; color:var(--muted); box-shadow:var(--shadow);
+  }
+  .empty b{color:var(--ink)}
+
+  /* chips */
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin:10px 0}
+  .chip{
+    border:1px solid var(--line); background:var(--card); border-radius:999px; cursor:pointer;
+    padding:5px 12px; font-size:.84rem; line-height:1.2; box-shadow:var(--shadow);
+  }
+  .chip small{color:var(--muted); font-size:.7rem; margin-left:4px}
+  .chip[aria-pressed="true"]{background:var(--purple); border-color:var(--purple); color:var(--card)}
+  .chip[aria-pressed="true"] small{color:inherit; opacity:.8}
+
+  /* timelines */
+  .tlist{display:flex; flex-direction:column; gap:10px; margin-top:8px}
+  .tlrow{display:grid; grid-template-columns:110px minmax(0,1fr); gap:10px; align-items:center}
+  .tlrow .lab{min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  .tlrow .lab small{display:block; color:var(--muted); font-size:.72rem}
+  .track{position:relative; height:28px; border-radius:6px; background:var(--free-soft); overflow:hidden;
+    box-shadow:inset 0 0 0 1px var(--line)}
+  .blk{
+    position:absolute; top:0; bottom:0; border:none; padding:0; cursor:pointer;
+    background:transparent; border-radius:0;
+  }
+  .blk.open:hover, .blk.open:focus-visible{background:color-mix(in srgb, var(--free) 25%, transparent)}
+  .blk.occ{background:var(--busy); box-shadow:inset 1px 0 0 var(--card), inset -1px 0 0 var(--card)}
+  .blk.occ:hover, .blk.occ:focus-visible{background:var(--purple-deep)}
+  .tick{position:absolute; top:0; bottom:0; width:1px; background:var(--line); pointer-events:none; opacity:.8}
+  .nowline{position:absolute; top:-2px; bottom:-2px; width:2px; background:var(--now); pointer-events:none; z-index:2}
+  .axis{position:relative; height:16px; font-size:.68rem; color:var(--muted); margin-left:120px}
+  .axis span{position:absolute; transform:translateX(-50%); white-space:nowrap}
+  .tlkey{display:flex; gap:14px; font-size:.76rem; color:var(--muted); margin-top:8px; flex-wrap:wrap}
+  .tlkey i{display:inline-block; width:14px; height:10px; border-radius:2px; vertical-align:-1px; margin-right:5px}
+
+  /* tooltip */
+  #tip{
+    position:fixed; z-index:50; max-width:min(340px, calc(100vw - 24px)); pointer-events:none;
+    background:var(--card); color:var(--ink); border:1px solid var(--line); border-radius:10px;
+    box-shadow:0 6px 24px rgba(20,10,40,.22); padding:10px 12px; font-size:.82rem; line-height:1.4;
+  }
+  #tip h4{margin:0 0 4px; font-size:.86rem; font-family:var(--mono)}
+  #tip .cls{border-top:1px solid var(--line); padding-top:6px; margin-top:6px}
+  #tip .cls:first-of-type{border-top:none; padding-top:0; margin-top:0}
+  #tip .muted{color:var(--muted)}
+
+  /* week dialog */
+  dialog{
+    border:1px solid var(--line); border-radius:14px; background:var(--paper); color:var(--ink);
+    width:min(860px, calc(100vw - 24px)); max-height:calc(100vh - 40px); padding:18px; box-shadow:0 12px 40px rgba(0,0,0,.3);
+  }
+  dialog::backdrop{background:rgba(20,12,30,.45)}
+  dialog h2{font-family:var(--mono); margin:0; font-size:1.2rem}
+  .dlg-head{display:flex; justify-content:space-between; gap:12px; align-items:flex-start}
+
+  .note{
+    margin-top:30px; font-size:.8rem; color:var(--muted); line-height:1.55;
+    border-top:1px solid var(--line); padding-top:14px;
+  }
+  @media (max-width:760px){
+    .controls{grid-template-columns:1fr 1fr; position:static}
+    .controls .span2{grid-column:1 / -1}
+    .summary{font-size:1.2rem}
+    .tlrow{grid-template-columns:84px minmax(0,1fr); gap:8px}
+    .axis{margin-left:92px}
+    .week .tlabel{font-size:.62rem; padding-right:3px}
+    .cell{font-size:.68rem}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .meter i{transition:width .25s ease}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><span>Hunter</span> · Open Classrooms</div>
+    <div class="datasrc" id="datasrc">Loading schedule…</div>
+  </header>
+
+  <div class="caveat" id="caveat">
+    <strong>Heads up:</strong>
+    <span id="caveatText">"Open" means no class is scheduled, not that the room is usable.</span>
+  </div>
+  <details class="unparsed" id="unparsed" hidden></details>
+
+  <section class="loader" id="loader" hidden>
+    <h2>Load schedule.json</h2>
+    <p>Couldn't fetch <code>data/schedule.json</code>. Serve this folder with
+      <code>python -m http.server</code> and open <code>http://localhost:8000/</code>,
+      or pick the file below. You can also select <code>model.json</code> to see unparsed rooms.</p>
+    <label class="btn" for="filepick">Load schedule.json</label>
+    <div class="err" id="loaderr" hidden></div>
+  </section>
+  <input type="file" id="filepick" class="filepick" accept=".json,application/json" multiple>
+
+  <div id="app" hidden>
+    <div class="controls" id="controls">
+      <div class="field">
+        <label for="weekDate">Week of</label>
+        <input type="date" id="weekDate">
+      </div>
+      <div class="field">
+        <span class="lbl">&nbsp;</span>
+        <label class="check"><input type="checkbox" id="anyWeek"> Any week of term</label>
+      </div>
+      <div class="field">
+        <label for="bldg">Building</label>
+        <select id="bldg"></select>
+      </div>
+      <div class="field">
+        <label for="floor">Floor</label>
+        <select id="floor"></select>
+      </div>
+      <div class="field span2">
+        <label for="minFree">Free for at least</label>
+        <select id="minFree">
+          <option value="0">Any</option>
+          <option value="15">15 minutes</option>
+          <option value="30">30 minutes</option>
+          <option value="45">45 minutes</option>
+          <option value="60">1 hour</option>
+          <option value="90">1.5 hours</option>
+          <option value="120">2 hours</option>
+          <option value="180">3 hours</option>
+        </select>
+      </div>
+      <div class="weeknote" id="weeknote"></div>
+    </div>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-grid" data-view="grid" aria-selected="true">Week grid</button>
+      <button class="tab" role="tab" id="tab-search" data-view="search" aria-selected="false">Search</button>
+      <button class="tab" role="tab" id="tab-bldg" data-view="bldg" aria-selected="false">Buildings</button>
+    </nav>
+
+    <!-- Week grid -->
+    <section id="view-grid" role="tabpanel" aria-labelledby="tab-grid">
+      <div class="row">
+        <div class="field">
+          <label for="gday">Point in time: day</label>
+          <select id="gday"></select>
+        </div>
+        <div class="field">
+          <label for="gtime">Time</label>
+          <input type="time" id="gtime" step="300">
+        </div>
+        <button class="btn" id="gnow" type="button">Now</button>
+        <div class="field">
+          <label for="step">Rows</label>
+          <select id="step">
+            <option value="30">30 minutes</option>
+            <option value="15">15 minutes</option>
+          </select>
+        </div>
+        <button class="btn" id="extend" type="button" aria-pressed="false" title="When on, a tap extends the selection down the column (for touch screens)">Extend range</button>
+      </div>
+      <div class="gridlayout">
+        <div>
+          <div class="hint">Each cell: rooms free for that whole cell. Click a cell; drag or Shift-click down a column for a range.</div>
+          <div class="week" id="week" role="grid" aria-label="Free rooms by day and time"></div>
+          <div class="legend"><span>fewer free</span><i></i><span>more free</span></div>
+        </div>
+        <div class="results" id="gresults" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Search -->
+    <section id="view-search" role="tabpanel" aria-labelledby="tab-search" hidden>
+      <div class="row">
+        <div class="field">
+          <label for="sday">Day</label>
+          <select id="sday"></select>
+        </div>
+        <div class="field">
+          <label for="stime">Time</label>
+          <input type="time" id="stime" step="300">
+        </div>
+        <button class="btn" id="snow" type="button">Reset to now</button>
+      </div>
+      <div class="hint">Uses the building, floor and "free for at least" filters above.</div>
+      <div id="sresults" aria-live="polite"></div>
+    </section>
+
+    <!-- Buildings -->
+    <section id="view-bldg" role="tabpanel" aria-labelledby="tab-bldg" hidden>
+      <div class="chips" id="bchips" aria-label="Building"></div>
+      <div class="chips" id="fchips" aria-label="Floor"></div>
+      <div class="chips" id="dchips" aria-label="Weekday"></div>
+      <div class="subline" id="bnote"></div>
+      <div class="axis" id="baxis" aria-hidden="true"></div>
+      <div class="tlist" id="blist"></div>
+      <div class="tlkey"><span><i style="background:var(--free-soft);box-shadow:inset 0 0 0 1px var(--line)"></i>open (no class scheduled)</span><span><i style="background:var(--busy)"></i>class scheduled</span><span><i style="background:var(--now)"></i>now</span></div>
+    </section>
+  </div>
+
+  <p class="note">
+    <b>Open</b> means no class is scheduled in the room at that time, according to CUNY Global
+    Search. It does not mean the room is unlocked, unreserved, or free of events. Check in person.
+    Availability is computed by the Python package (<code>hunter_rooms</code>); this page only reads
+    the slot strings in <code>schedule.json</code>.
+  </p>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <div class="dlg-head">
+    <div><h2 id="dlgTitle"></h2><div class="subline" id="dlgSub"></div></div>
+    <button class="btn small" id="dlgClose" type="button">Close</button>
+  </div>
+  <div class="axis" id="dlgAxis" aria-hidden="true"></div>
+  <div class="tlist" id="dlgList"></div>
+</dialog>
+<div id="tip" role="tooltip" hidden></div>
+
+<!-- Availability lookups: a port of hunter_rooms/schedule.py (Schedule) that only reads the precomputed slot strings. -->
+<script id="engine">
+var HRF = (function () {
+  "use strict";
+  var DAY_CODES = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
+  var MS_DAY = 86400000;
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  // Dates are ISO "YYYY-MM-DD" strings (null = any week). UTC math avoids DST/timezone drift.
+  function isoToMs(s) { var p = String(s).split("-"); return Date.UTC(+p[0], +p[1] - 1, +p[2]); }
+  function msToIso(ms) {
+    var d = new Date(ms);
+    return d.getUTCFullYear() + "-" + pad(d.getUTCMonth() + 1) + "-" + pad(d.getUTCDate());
+  }
+  function addDays(s, n) { return msToIso(isoToMs(s) + n * MS_DAY); }
+  function weekday(s) { return (new Date(isoToMs(s)).getUTCDay() + 6) % 7; }
+  function todayIso(now) {
+    now = now || new Date();
+    return now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate());
+  }
+  function mod(a, n) { return ((a % n) + n) % n; }
+  function cmp(a, b) { return a < b ? -1 : a > b ? 1 : 0; }
+  function isInt(f) { return typeof f === "number" && Math.floor(f) === f; }
+  function floorKey(f) { return isInt(f) ? [0, f] : (f == null ? [-1, 0] : [-1, String(f)]); }
+  function cmpKey(a, b) {
+    for (var i = 0; i < a.length; i++) {
+      var x = a[i], y = b[i], c;
+      if (Array.isArray(x)) c = cmpKey(x, y);
+      else if (typeof x === typeof y) c = cmp(x, y);
+      else c = typeof x === "number" ? -1 : 1;
+      if (c) return c;
+    }
+    return 0;
+  }
+  function fmtTime(minutes) {
+    var m = Math.trunc(minutes), h = Math.floor(m / 60), mi = m - h * 60;
+    var ap = (h < 12 || h === 24) ? "AM" : "PM";
+    return ((h % 12) || 12) + ":" + pad(mi) + ap;
+  }
+  function repeat0(n) { return new Array(n + 1).join("0"); }
+
+  function Schedule(data) {
+    this.d = data;
+    this.hs = data.hours.start;
+    this.he = data.hours.end;
+    this.slot = data.slot_minutes;
+    this.patterns = data.patterns;
+    this.rooms = data.rooms;
+    this.periods = data.periods.map(function (p) { return [p.start, p.end]; });
+    this._cache = Object.create(null);
+  }
+  var P = Schedule.prototype;
+
+  // -- dates ---------------------------------------------------------------
+  P.termStart = function () { return this.periods.length ? this.periods[0][0] : null; };
+  P.termEnd = function () { return this.periods.length ? this.periods[this.periods.length - 1][1] : null; };
+
+  P.periodIndex = function (d) {
+    for (var i = 0; i < this.periods.length; i++) {
+      if (this.periods[i][0] <= d && d <= this.periods[i][1]) return i;
+    }
+    return null;
+  };
+
+  /** Returns [dayCode, isoDate|null]. null = "any week of the term". */
+  P.resolveDate = function (day, on, today) {
+    today = today || todayIso();
+    if (on != null) return [DAY_CODES[weekday(on)], on];
+    if (day == null) return [DAY_CODES[weekday(today)], today];
+    var di = DAY_CODES.indexOf(day);
+    if (di < 0) throw new Error("unknown day " + day);
+    var d = addDays(today, mod(di - weekday(today), 7));
+    var ts = this.termStart(), te = this.termEnd();
+    if (ts && te) {
+      if (d < ts) d = addDays(ts, mod(di - weekday(ts), 7));
+      if (d > te) return [day, null];
+    }
+    return [day, d];
+  };
+
+  // -- slots ---------------------------------------------------------------
+  P.slots = function (rid, day, on) {
+    var key = rid + "|" + day + "|" + (on == null ? "*" : on);
+    var hit = this._cache[key];
+    if (hit !== undefined) return hit;
+    var n = Math.floor((this.he - this.hs) / this.slot);
+    var idx = this.rooms[rid].days[day].slots, out;
+    if (!idx || !idx.length) {
+      out = repeat0(n);
+    } else if (on == null) { // busy in any week
+      var strs = idx.map(function (i) { return this.patterns[i]; }, this);
+      var len = strs[0].length, buf = new Array(len);
+      for (var k = 0; k < len; k++) {
+        var c = "0";
+        for (var j = 0; j < strs.length; j++) if (strs[j][k] === "1") { c = "1"; break; }
+        buf[k] = c;
+      }
+      out = buf.join("");
+    } else {
+      var p = this.periodIndex(on);
+      out = p == null ? repeat0(n) : this.patterns[idx[p]]; // outside the term: no classes
+    }
+    this._cache[key] = out;
+    return out;
+  };
+
+  P.slotOf = function (t) { return Math.floor((t - this.hs) / this.slot); };
+
+  /** null if busy at t (or t outside hours), else the minute the room next becomes busy (or closes). */
+  P.freeUntil = function (rid, day, t, on) {
+    if (!(this.hs <= t && t < this.he)) return null;
+    var s = this.slots(rid, day, on);
+    var i = this.slotOf(t);
+    if (s[i] === "1") return null;
+    var j = s.indexOf("1", i);
+    return j < 0 ? this.he : this.hs + j * this.slot;
+  };
+
+  P.isFree = function (rid, day, start, end, on) {
+    if (start < this.hs || end > this.he || end <= start) return false;
+    var s = this.slots(rid, day, on);
+    var a = this.slotOf(start), b = Math.ceil((end - this.hs) / this.slot);
+    return s.slice(a, b).indexOf("1") < 0;
+  };
+
+  // -- filters -------------------------------------------------------------
+  P.buildingMatches = function (rid, query) {
+    if (!query) return true;
+    var q = String(query).trim().toLowerCase();
+    var r = this.rooms[rid];
+    var bs = this.d.buildings || [];
+    for (var i = 0; i < bs.length; i++) {
+      var b = bs[i];
+      if (b.id === r.building) {
+        return b.aliases.some(function (a) { return a.toLowerCase() === q; }) || q === b.id.toLowerCase();
+      }
+    }
+    return false;
+  };
+
+  P.roomIds = function (building, floor) {
+    var out = [], self = this;
+    for (var rid in this.rooms) {
+      var r = this.rooms[rid];
+      if (r.building == null || r.floor == null) continue; // unparsed rooms are reported, not searched
+      if (!this.buildingMatches(rid, building)) continue;
+      if (floor != null && String(r.floor).toUpperCase() !== String(floor).toUpperCase()) continue;
+      out.push(rid);
+    }
+    var key = function (x) { var r = self.rooms[x]; return [r.building, floorKey(r.floor), r.number == null ? "" : r.number]; };
+    return out.map(function (x) { return [key(x), x]; })
+      .sort(function (a, b) { return cmpKey(a[0], b[0]); })
+      .map(function (p) { return p[1]; });
+  };
+
+  // -- queries -------------------------------------------------------------
+  P.find = function (day, t, on, minFree, until, building, floor) {
+    minFree = minFree || 0;
+    var out = [], ids = this.roomIds(building, floor);
+    for (var i = 0; i < ids.length; i++) {
+      var rid = ids[i];
+      var fu = this.freeUntil(rid, day, t, on);
+      if (fu == null) continue;
+      if (until != null && fu < until) continue;
+      if (fu - t < minFree) continue;
+      var r = this.rooms[rid];
+      out.push({ id: rid, name: r.name, building: r.building, floor: r.floor, free_from: t, free_until: fu });
+    }
+    return out;
+  };
+
+  P.timeline = function (rid, day, on) {
+    var s = this.slots(rid, day, on);
+    var occ = this.rooms[rid].days[day].occupied.filter(function (o) {
+      return on == null || ((!o.start_date || o.start_date <= on) && (!o.end_date || on <= o.end_date));
+    });
+    var blocks = [], i = 0;
+    while (i < s.length) {
+      var j = i;
+      while (j < s.length && s[j] === s[i]) j++;
+      var a = this.hs + i * this.slot, b = this.hs + j * this.slot;
+      var blk = { start: a, end: b, state: s[i] === "1" ? "occupied" : "open" };
+      if (s[i] === "1") blk.classes = occ.filter(function (o) { return o.start < b && o.end > a; });
+      blocks.push(blk);
+      i = j;
+    }
+    return blocks;
+  };
+
+  // -- page helpers built only on the methods above --------------------------
+  /** Rooms (from roomIds) free for each whole cell [hs+i*step, hs+(i+1)*step). */
+  P.gridCounts = function (day, on, step, building, floor) {
+    var ids = this.roomIds(building, floor);
+    var ncols = Math.floor((this.he - this.hs) / step), counts = [];
+    for (var i = 0; i < ncols; i++) {
+      var a = this.hs + i * step, n = 0;
+      for (var k = 0; k < ids.length; k++) if (this.isFree(ids[k], day, a, a + step, on)) n++;
+      counts.push(n);
+    }
+    return { total: ids.length, counts: counts };
+  };
+
+  /** True if any room has a meeting on this weekday in any week. */
+  P.hasClassesOn = function (day) {
+    for (var rid in this.rooms) {
+      var d = this.rooms[rid].days[day];
+      if (d && d.occupied && d.occupied.length) return true;
+    }
+    return false;
+  };
+
+  return {
+    DAY_CODES: DAY_CODES, Schedule: Schedule, fmtTime: fmtTime, addDays: addDays,
+    weekday: weekday, todayIso: todayIso, floorKey: floorKey
+  };
+})();
+if (typeof module !== "undefined" && module.exports) module.exports = HRF;
+</script>
+
+<script>
+(function () {
+  "use strict";
+  var DAY_CODES = HRF.DAY_CODES, fmt = HRF.fmtTime, addDays = HRF.addDays, weekday = HRF.weekday;
+  var DAY_LONG = { Mo: "Monday", Tu: "Tuesday", We: "Wednesday", Th: "Thursday", Fr: "Friday", Sa: "Saturday", Su: "Sunday" };
+  var $ = function (id) { return document.getElementById(id); };
+
+  /** Build DOM nodes. Strings become text nodes; nothing from JSON ever reaches innerHTML. */
+  function el(tag, props) {
+    var n = document.createElement(tag);
+    if (props) for (var k in props) {
+      var v = props[k];
+      if (v == null || v === false) continue;
+      if (k === "class") n.className = v;
+      else if (k === "text") n.textContent = v;
+      else if (k === "style") n.style.cssText = v;
+      else if (k.slice(0, 2) === "on") n.addEventListener(k.slice(2), v);
+      else n.setAttribute(k, v === true ? "" : String(v));
+    }
+    for (var i = 2; i < arguments.length; i++) append(n, arguments[i]);
+    return n;
+  }
+  function append(n, c) {
+    if (c == null || c === false) return;
+    if (Array.isArray(c)) { c.forEach(function (x) { append(n, x); }); return; }
+    n.appendChild(c.nodeType ? c : document.createTextNode(String(c)));
+  }
+  function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); }
+  function dur(m) { var h = Math.floor(m / 60), r = m % 60; return h ? (r ? h + "h " + r + "m" : h + "h") : r + "m"; }
+  function shortDate(iso) { var p = iso.split("-"); return (+p[1]) + "/" + (+p[2]); }
+  function nowMin() { var d = new Date(); return d.getHours() * 60 + d.getMinutes(); }
+  function clockToMin(v) { if (!v) return null; var p = v.split(":"); return +p[0] * 60 + +p[1]; }
+  function minToClock(m) { return String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0"); }
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem("hrf." + k); localStorage.setItem("hrf." + k, v); } catch (e) { return null; } }
+
+  var SCHED = null, MODEL = null, DAYS = DAY_CODES.slice();
+  var S = {
+    view: "grid", week: "", anyWeek: false, building: "", floor: "", minFree: 0,
+    step: 30, sel: null, extend: false, gday: "Mo", gtime: 600,
+    sday: "Mo", stime: 600, bbuilding: "", bfloor: "", bday: "Mo"
+  };
+
+  // ---------------------------------------------------------------- dates
+  /** Calendar date a weekday refers to under the current week setting (null = any week).
+      No week picked: same as the CLI without --date (Schedule.resolve_date). */
+  function dateFor(day) {
+    if (S.anyWeek) return null;
+    if (S.week) { var mon = addDays(S.week, -weekday(S.week)); return addDays(mon, DAY_CODES.indexOf(day)); }
+    return SCHED.resolveDate(day, null, HRF.todayIso())[1];
+  }
+  function dateNote(on) {
+    if (on == null) return "any week of the term (busy if a class meets there in any week)";
+    if (SCHED.periodIndex(on) == null) return on + " (outside the term's class dates: no classes listed)";
+    return on;
+  }
+  function dayLabel(day, on) { return DAY_LONG[day] + (on ? " " + shortDate(on) : ""); }
+
+  // ---------------------------------------------------------------- loading
+  function showLoader(msg) {
+    $("loader").hidden = false;
+    $("datasrc").textContent = "No schedule loaded";
+    if (msg) { $("loaderr").hidden = false; $("loaderr").textContent = msg; }
+  }
+  function validSchedule(d) {
+    return d && d.hours && typeof d.hours.start === "number" && typeof d.slot_minutes === "number" &&
+      Array.isArray(d.patterns) && Array.isArray(d.periods) && d.rooms && typeof d.rooms === "object";
+  }
+  function setSchedule(data, label) {
+    SCHED = new HRF.Schedule(data);
+    $("loader").hidden = true;
+    $("app").hidden = false;
+    var nRooms = SCHED.roomIds().length, nSkipped = Object.keys(data.rooms).length - nRooms;
+    var src = $("datasrc"); clear(src);
+    append(src, [el("b", { text: data.term || "Unknown term" }), " · ",
+      el("b", { text: String(nRooms) }), " rooms · ",
+      data.periods.length + " date period" + (data.periods.length === 1 ? "" : "s") + " · generated ",
+      el("b", { text: String(data.generated_at || "?").replace("T", " ") }),
+      label ? " · " + label : "", " · ",
+      el("button", { class: "btn small", type: "button", text: "Load file", onclick: function () { $("filepick").click(); } })]);
+    $("caveatText").textContent = data.caveat || "";
+    S.skipped = nSkipped;
+    DAYS = DAY_CODES.filter(function (d, i) { return i < 5 || SCHED.hasClassesOn(d); });
+    var today = DAY_CODES[weekday(HRF.todayIso())];
+    var d0 = DAYS.indexOf(today) >= 0 ? today : DAYS[0];
+    S.gday = S.sday = S.bday = d0;
+    S.gtime = S.stime = nowMin();
+    S.sel = { kind: "point", day: S.gday, t: S.gtime };
+    var buildings = (data.buildings || []);
+    if (!S.bbuilding && buildings.length) S.bbuilding = buildings[0].id;
+    initControls();
+    renderUnparsed();
+    renderAll();
+  }
+  function setModel(data) { MODEL = data; renderUnparsed(); }
+
+  function loadFiles(files) {
+    var errs = [];
+    var pending = files.length;
+    Array.prototype.forEach.call(files, function (f) {
+      var rd = new FileReader();
+      rd.onload = function () {
+        try {
+          var d = JSON.parse(rd.result);
+          if (validSchedule(d)) setSchedule(d, f.name);
+          else if (d && Array.isArray(d.unparsed_rooms)) setModel(d);
+          else errs.push(f.name + ": not a schedule.json or model.json");
+        } catch (e) { errs.push(f.name + ": " + e.message); }
+        if (--pending === 0 && errs.length) {
+          if (!SCHED) showLoader(errs.join("; ")); else alert(errs.join("\n"));
+        }
+      };
+      rd.readAsText(f);
+    });
+  }
+
+  function boot() {
+    fetch("data/schedule.json", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (d) {
+        if (!validSchedule(d)) throw new Error("data/schedule.json is not in the expected format");
+        setSchedule(d, "data/schedule.json");
+        return fetch("data/model.json", { cache: "no-cache" })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (m) { if (m && Array.isArray(m.unparsed_rooms)) setModel(m); })
+          .catch(function () { /* optional */ });
+      })
+      .catch(function (e) {
+        if (!SCHED) showLoader(location.protocol === "file:" ? "" : "(" + e.message + ")");
+      });
+  }
+
+  function renderUnparsed() {
+    var box = $("unparsed"); clear(box);
+    var skipped = S.skipped ? " " + S.skipped + " room" + (S.skipped === 1 ? "" : "s") +
+      " in schedule.json have no parsed building or floor and are skipped." : "";
+    if (!MODEL || !MODEL.unparsed_rooms.length) {
+      if (!skipped) { box.hidden = true; return; }
+      box.hidden = false;
+      append(box, el("summary", { text: skipped.trim() + " Load model.json for details." }));
+      return;
+    }
+    box.hidden = false;
+    var u = MODEL.unparsed_rooms;
+    var secs = u.reduce(function (a, x) { return a + (+x.sections || 0); }, 0);
+    append(box, el("summary", { text: u.length + " room name" + (u.length === 1 ? "" : "s") +
+      " couldn't be parsed (" + secs + " sections). They are not included in results." }));
+    var ul = el("ul");
+    u.forEach(function (x) {
+      append(ul, el("li", null, el("code", { text: x.raw }), " — ", x.reason,
+        x.sections != null ? " (" + x.sections + " section" + (x.sections === 1 ? "" : "s") + ")" : ""));
+    });
+    append(box, ul);
+  }
+
+  // ---------------------------------------------------------------- controls
+  function fillSelect(sel, opts, value) {
+    clear(sel);
+    opts.forEach(function (o) { append(sel, el("option", { value: o[0], text: o[1] })); });
+    sel.value = value;
+    if (sel.value !== String(value) && opts.length) sel.value = opts[0][0];
+  }
+  function floorLabel(f) { return "Floor " + f; }
+  function floorsFor(bid) {
+    var seen = {}, out = [];
+    SCHED.roomIds(bid || null, null).forEach(function (rid) {
+      var f = SCHED.rooms[rid].floor, k = String(f).toUpperCase();
+      if (!seen[k]) { seen[k] = 1; out.push(f); }
+    });
+    if (!bid) out.sort(function (a, b) { return cmpFloor(a, b); });
+    return out;
+  }
+  function cmpFloor(a, b) {
+    var x = HRF.floorKey(a), y = HRF.floorKey(b);
+    if (x[0] !== y[0]) return x[0] - y[0];
+    return x[1] < y[1] ? -1 : x[1] > y[1] ? 1 : 0;
+  }
+  function initControls() {
+    var bs = SCHED.d.buildings || [];
+    fillSelect($("bldg"), [["", "All buildings"]].concat(bs.map(function (b) {
+      var al = b.aliases.filter(function (a) { return a !== b.name && a !== b.id; });
+      return [b.id, b.name + (al.length ? " (" + al.join(", ") + ")" : "")];
+    })), S.building);
+    S.building = $("bldg").value;
+    refreshFloors();
+    var dayOpts = DAYS.map(function (d) { return [d, DAY_LONG[d]]; });
+    fillSelect($("gday"), dayOpts, S.gday);
+    fillSelect($("sday"), dayOpts, S.sday);
+    $("gtime").value = minToClock(S.gtime);
+    $("stime").value = minToClock(S.stime);
+    $("step").value = String(S.step);
+    $("anyWeek").checked = S.anyWeek;
+    $("weekDate").value = S.week;
+    var ts = SCHED.termStart(), te = SCHED.termEnd();
+    if (ts) $("weekDate").min = addDays(ts, -weekday(ts));
+    if (te) $("weekDate").max = te;
+  }
+  function refreshFloors() {
+    fillSelect($("floor"), [["", "All floors"]].concat(floorsFor(S.building).map(function (f) {
+      return [String(f), floorLabel(f)];
+    })), S.floor);
+    S.floor = $("floor").value;
+  }
+  function weekNote() {
+    var n = $("weeknote"); clear(n);
+    if (S.anyWeek) {
+      append(n, ["Showing ", el("b", { text: "any week of the term" }), ": a room counts as busy if a class meets there in any week."]);
+    } else if (S.week) {
+      var mon = addDays(S.week, -weekday(S.week));
+      append(n, ["Week of ", el("b", { text: mon + " – " + addDays(mon, 6) }), ". Half-term sessions are respected. ",
+        el("button", { class: "btn small", type: "button", text: "Back to upcoming days", onclick: function () { S.week = ""; $("weekDate").value = ""; renderAll(); } })]);
+    } else {
+      var t = SCHED.termStart(), e = SCHED.termEnd();
+      append(n, ["Showing the next occurrence of each weekday", t ? " within the term (" + t + " – " + e + ")" : "",
+        ". Pick a date to choose a specific week."]);
+    }
+  }
+  function curBuilding() { return S.building || null; }
+  function curFloor() { return S.floor === "" ? null : S.floor; }
+
+  // ---------------------------------------------------------------- results list
+  function renderRoomList(box, rooms, t, title, sub, emptyMsg) {
+    clear(box);
+    append(box, el("div", { class: "summary" }, el("span", { class: "n", text: String(rooms.length) }),
+      " room" + (rooms.length === 1 ? "" : "s") + " " + title));
+    append(box, el("div", { class: "subline", text: sub }));
+    if (!rooms.length) {
+      append(box, el("div", { class: "empty" }, el("b", { text: "Nothing matches. " }), emptyMsg ||
+        "Try an earlier time, a shorter \"free for\" window, or clear the building/floor filters."));
+      return;
+    }
+    var curB = null, curF, bdiv, fdiv;
+    rooms.forEach(function (r) {
+      var room = SCHED.rooms[r.id];
+      if (r.building !== curB) {
+        curB = r.building; curF = undefined;
+        bdiv = el("div", { class: "bldg" }, el("h3", { text: room.building_name || r.building }));
+        append(box, bdiv);
+      }
+      if (String(r.floor) !== curF) {
+        curF = String(r.floor);
+        var list = el("div", { class: "rooms" });
+        fdiv = el("div", { class: "floor" }, el("div", { class: "floor-tag", text: "Fl " + r.floor }), list);
+        append(bdiv, fdiv);
+      }
+      var mins = r.free_until - t;
+      var toClose = r.free_until >= SCHED.he;
+      var status = toClose
+        ? el("span", { class: "until" }, el("span", { class: "rest", text: "Free until close" }), " (" + fmt(SCHED.he) + ") · " + dur(mins))
+        : el("span", { class: "until" }, "Free until ", el("b", { text: fmt(r.free_until) }), " · " + dur(mins));
+      var pct = Math.min(100, Math.round(mins / 240 * 100));
+      append(fdiv.lastChild, el("div", { class: "room" },
+        el("button", { class: "rno", type: "button", text: room.number || r.id, title: room.name + " — show week",
+          onclick: function () { openWeek(r.id); } }),
+        el("div", { class: "status" }, status, el("div", { class: "meter" }, el("i", { style: "width:" + pct + "%" })))));
+    });
+  }
+  function filterText() {
+    var parts = [];
+    if (S.building) parts.push($("bldg").selectedOptions[0].textContent.replace(/ \(.*$/, ""));
+    if (S.floor !== "") parts.push("floor " + S.floor);
+    if (S.minFree) parts.push("free ≥ " + dur(S.minFree));
+    return parts.length ? " · " + parts.join(" · ") : "";
+  }
+
+  // ---------------------------------------------------------------- week grid
+  var drag = false;
+  function selRows() { return [Math.min(S.sel.a, S.sel.b), Math.max(S.sel.a, S.sel.b)]; }
+
+  function renderGrid() {
+    var box = $("week"); clear(box);
+    var step = S.step, hs = SCHED.hs;
+    var nrows = Math.floor((SCHED.he - hs) / step);
+    box.style.gridTemplateColumns = "44px repeat(" + DAYS.length + ", minmax(0,1fr))";
+    append(box, el("div"));
+    var cols = DAYS.map(function (d) {
+      var on = dateFor(d);
+      var off = on != null && SCHED.periodIndex(on) == null;
+      append(box, el("div", { class: "hd" + (off ? " off" : ""), title: dateNote(on) }, d,
+        el("small", { text: on ? (off ? shortDate(on) + " no classes" : shortDate(on)) : "any wk" })));
+      return { day: d, on: on, g: SCHED.gridCounts(d, on, step, curBuilding(), curFloor()) };
+    });
+    for (var i = 0; i < nrows; i++) {
+      var m = hs + i * step;
+      var hour = m % 60 === 0;
+      append(box, el("div", { class: "tlabel", text: (hour || step === 30) ? fmt(m).replace(":00", "").toLowerCase() : "" }));
+      cols.forEach(function (c) {
+        var n = c.g.counts[i], tot = c.g.total;
+        var frac = tot ? n / tot : 0;
+        var p = Math.round(frac * 100);
+        append(box, el("button", {
+          class: "cell" + (frac > 0.6 ? " dark" : "") + (n === 0 ? " zero" : ""),
+          type: "button", style: "--p:" + p + "%", "data-day": c.day, "data-row": i,
+          title: DAY_LONG[c.day] + " " + fmt(m) + "–" + fmt(m + step) + ": " + n + " of " + tot + " rooms free",
+          "aria-label": DAY_LONG[c.day] + " " + fmt(m) + ": " + n + " rooms free", text: String(n)
+        }));
+      });
+    }
+    paintSel();
+  }
+  function paintSel() {
+    var cells = $("week").querySelectorAll(".cell.sel");
+    for (var i = 0; i < cells.length; i++) cells[i].classList.remove("sel");
+    if (!S.sel) return;
+    var lo, hi;
+    if (S.sel.kind === "point") {
+      lo = hi = Math.floor((S.sel.t - SCHED.hs) / S.step);
+    } else { var r = selRows(); lo = r[0]; hi = r[1]; }
+    for (var k = lo; k <= hi; k++) {
+      var c = $("week").querySelector('.cell[data-day="' + S.sel.day + '"][data-row="' + k + '"]');
+      if (c) c.classList.add("sel");
+    }
+  }
+  function renderSelection() {
+    var box = $("gresults");
+    if (!S.sel) { clear(box); append(box, el("div", { class: "empty", text: "Select a cell to list free rooms." })); return; }
+    var day = S.sel.day, on = dateFor(day), rooms, t, title, sub;
+    if (S.sel.kind === "point") {
+      t = S.sel.t;
+      rooms = SCHED.find(day, t, on, S.minFree, null, curBuilding(), curFloor());
+      title = "with no class at " + fmt(t);
+      sub = dayLabel(day, on) + " at " + fmt(t) + filterText() + " · date: " + dateNote(on);
+      if (t < SCHED.hs || t >= SCHED.he) sub += " · outside operating hours (" + fmt(SCHED.hs) + "–" + fmt(SCHED.he) + ")";
+    } else {
+      var r = selRows();
+      t = SCHED.hs + r[0] * S.step;
+      var end = SCHED.hs + (r[1] + 1) * S.step;
+      rooms = SCHED.find(day, t, on, S.minFree, end, curBuilding(), curFloor());
+      title = "free " + fmt(t) + "–" + fmt(end);
+      sub = dayLabel(day, on) + ", whole range (" + dur(end - t) + ")" + filterText() + " · date: " + dateNote(on);
+    }
+    renderRoomList(box, rooms, t, title, sub);
+  }
+  function setPoint(day, t) {
+    S.gday = day; S.gtime = t;
+    S.sel = { kind: "point", day: day, t: t };
+    paintSel(); renderSelection();
+  }
+  function cellFromEvent(e) {
+    var c = e.target.closest && e.target.closest(".cell");
+    if (!c && e.clientX != null) {
+      var hit = document.elementFromPoint(e.clientX, e.clientY);
+      c = hit && hit.closest && hit.closest(".cell");
+    }
+    return c;
+  }
+  function pickCell(c, extend) {
+    var day = c.getAttribute("data-day"), row = +c.getAttribute("data-row");
+    if (extend && S.sel && S.sel.day === day) {
+      var anchor = S.sel.kind === "range" ? S.sel.a : Math.floor((S.sel.t - SCHED.hs) / S.step);
+      S.sel = { kind: "range", day: day, a: anchor, b: row };
+    } else {
+      S.sel = { kind: "range", day: day, a: row, b: row };
+    }
+    paintSel(); renderSelection();
+  }
+  function bindGrid() {
+    var g = $("week");
+    g.addEventListener("pointerdown", function (e) {
+      var c = cellFromEvent(e); if (!c) return;
+      pickCell(c, e.shiftKey || S.extend);
+      if (e.pointerType === "mouse" && e.button === 0) { drag = true; e.preventDefault(); }
+    });
+    g.addEventListener("pointermove", function (e) {
+      if (!drag || !S.sel || S.sel.kind !== "range") return;
+      var c = cellFromEvent(e);
+      if (!c || c.getAttribute("data-day") !== S.sel.day) return;
+      var row = +c.getAttribute("data-row");
+      if (row !== S.sel.b) { S.sel.b = row; paintSel(); renderSelection(); }
+    });
+    window.addEventListener("pointerup", function () { drag = false; });
+    g.addEventListener("click", function (e) { // keyboard activation (Enter/Space) has detail 0
+      if (e.detail !== 0) return;
+      var c = cellFromEvent(e); if (c) pickCell(c, e.shiftKey || S.extend);
+    });
+  }
+
+  // ---------------------------------------------------------------- search
+  function renderSearch() {
+    var day = S.sday, t = S.stime, on = dateFor(day);
+    var until = S.minFree ? t + S.minFree : null;
+    var rooms = SCHED.find(day, t, on, 0, until, curBuilding(), curFloor());
+    var sub = dayLabel(day, on) + " at " + fmt(t) + filterText() + " · date: " + dateNote(on);
+    if (t < SCHED.hs || t >= SCHED.he) sub += " · outside operating hours (" + fmt(SCHED.hs) + "–" + fmt(SCHED.he) + ")";
+    renderRoomList($("sresults"), rooms, t, "with no class scheduled", sub);
+  }
+
+  // ---------------------------------------------------------------- timelines
+  var tip = $("tip"), tipPinned = null;
+  function pctOf(m) { return ((m - SCHED.hs) / (SCHED.he - SCHED.hs) * 100).toFixed(3) + "%"; }
+  function renderAxis(box) {
+    clear(box);
+    var narrow = window.innerWidth < 600;
+    for (var m = Math.ceil(SCHED.hs / 60) * 60; m <= SCHED.he; m += narrow ? 180 : 120) {
+      append(box, el("span", { style: "left:" + pctOf(m), text: fmt(m).replace(":00", "").toLowerCase() }));
+    }
+  }
+  function timelineEl(rid, day, on) {
+    var track = el("div", { class: "track" });
+    for (var h = Math.ceil(SCHED.hs / 60) * 60; h < SCHED.he; h += 60) {
+      if (h > SCHED.hs) append(track, el("i", { class: "tick", style: "left:" + pctOf(h) }));
+    }
+    SCHED.timeline(rid, day, on).forEach(function (b) {
+      var occ = b.state === "occupied";
+      var label = (occ ? "Class scheduled " : "Open ") + fmt(b.start) + "–" + fmt(b.end) +
+        (occ && b.classes.length ? ": " + b.classes.map(function (c) { return c.course + " " + c.section; }).join(", ") : "");
+      var btn = el("button", {
+        class: "blk " + (occ ? "occ" : "open"), type: "button", "aria-label": label,
+        style: "left:" + pctOf(b.start) + ";width:" + ((b.end - b.start) / (SCHED.he - SCHED.hs) * 100).toFixed(3) + "%"
+      });
+      btn._blk = b; btn._on = on;
+      append(track, btn);
+    });
+    if (on && on === HRF.todayIso()) {
+      var nm = nowMin();
+      if (nm >= SCHED.hs && nm < SCHED.he) append(track, el("i", { class: "nowline", style: "left:" + pctOf(nm), title: "now " + fmt(nm) }));
+    }
+    return track;
+  }
+  function tipContent(b, on) {
+    clear(tip);
+    if (b.state === "open") {
+      append(tip, el("h4", { text: "Open · " + fmt(b.start) + "–" + fmt(b.end) }));
+      append(tip, el("div", { text: dur(b.end - b.start) + " with no class scheduled" + (on == null ? " in any week of the term" : "") }));
+      append(tip, el("div", { class: "muted", text: "Not a guarantee the room is unlocked or unbooked." }));
+      return;
+    }
+    append(tip, el("h4", { text: "Class scheduled · " + fmt(b.start) + "–" + fmt(b.end) }));
+    if (!b.classes.length) append(tip, el("div", { class: "muted", text: "No meeting details for this date." }));
+    b.classes.forEach(function (c) {
+      append(tip, el("div", { class: "cls" },
+        el("div", null, el("b", { text: c.course + " " + c.section }), " " + (c.component || "")),
+        c.title ? el("div", { text: c.title }) : null,
+        el("div", { text: fmt(c.start) + "–" + fmt(c.end) + " · " + (c.instructor || "Staff") }),
+        el("div", { class: "muted", text: [c.mode, (c.start_date || "?") + " to " + (c.end_date || "?"), c.class_number ? "#" + c.class_number : ""].filter(Boolean).join(" · ") })));
+    });
+  }
+  function placeTip(x, y) {
+    tip.hidden = false;
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = Math.min(Math.max(8, x - w / 2), window.innerWidth - w - 8);
+    var top = y - h - 12; if (top < 8) top = y + 18;
+    tip.style.left = left + "px"; tip.style.top = top + "px";
+  }
+  function showTipFor(btn, x, y) {
+    tipContent(btn._blk, btn._on);
+    if (x == null) { var r = btn.getBoundingClientRect(); x = r.left + r.width / 2; y = r.top; }
+    placeTip(x, y);
+  }
+  function hideTip() { tip.hidden = true; tipPinned = null; }
+  function bindTips() {
+    document.addEventListener("pointerover", function (e) {
+      var b = e.target.closest && e.target.closest(".blk");
+      if (b && e.pointerType === "mouse") showTipFor(b, e.clientX, e.clientY);
+    });
+    document.addEventListener("pointermove", function (e) {
+      if (tipPinned || e.pointerType !== "mouse" || tip.hidden) return;
+      var b = e.target.closest && e.target.closest(".blk");
+      if (b) placeTip(e.clientX, e.clientY);
+    });
+    document.addEventListener("pointerout", function (e) {
+      var b = e.target.closest && e.target.closest(".blk");
+      if (b && !tipPinned && e.pointerType === "mouse") tip.hidden = true;
+    });
+    document.addEventListener("click", function (e) {
+      var b = e.target.closest && e.target.closest(".blk");
+      if (b) { tipPinned = b; showTipFor(b, e.detail ? e.clientX : null, e.detail ? e.clientY : null); return; }
+      if (tipPinned) hideTip();
+    });
+    document.addEventListener("focusin", function (e) {
+      if (e.target.classList && e.target.classList.contains("blk")) showTipFor(e.target);
+    });
+    document.addEventListener("focusout", function (e) {
+      if (e.target.classList && e.target.classList.contains("blk") && !tipPinned) tip.hidden = true;
+    });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") hideTip(); });
+    window.addEventListener("scroll", function () { if (!tip.hidden) hideTip(); }, { passive: true });
+  }
+
+  // ---------------------------------------------------------------- buildings view
+  function chip(text, small, pressed, onclick) {
+    return el("button", { class: "chip", type: "button", "aria-pressed": pressed ? "true" : "false", onclick: onclick },
+      text, small ? el("small", { text: small }) : null);
+  }
+  function renderBuildings() {
+    var bs = SCHED.d.buildings || [];
+    var bc = $("bchips"); clear(bc);
+    bs.forEach(function (b) {
+      var n = SCHED.roomIds(b.id, null).length;
+      if (!n) return;
+      append(bc, chip(b.name, String(n), S.bbuilding === b.id, function () { S.bbuilding = b.id; S.bfloor = ""; renderBuildings(); }));
+    });
+    var floors = floorsFor(S.bbuilding);
+    var fc = $("fchips"); clear(fc);
+    append(fc, chip("All floors", null, S.bfloor === "", function () { S.bfloor = ""; renderBuildings(); }));
+    floors.forEach(function (f) {
+      var v = String(f);
+      append(fc, chip("Fl " + f, null, S.bfloor === v, function () { S.bfloor = v; renderBuildings(); }));
+    });
+    var dc = $("dchips"); clear(dc);
+    DAYS.forEach(function (d) {
+      var on = dateFor(d);
+      append(dc, chip(d, on ? shortDate(on) : "any", S.bday === d, function () { S.bday = d; renderBuildings(); }));
+    });
+    var on = dateFor(S.bday);
+    $("bnote").textContent = dayLabel(S.bday, on) + " · date: " + dateNote(on) + ". Hover or tap a block for details; click a room for its week.";
+    renderAxis($("baxis"));
+    var list = $("blist"); clear(list);
+    var ids = SCHED.roomIds(S.bbuilding || null, S.bfloor === "" ? null : S.bfloor);
+    if (!ids.length) { append(list, el("div", { class: "empty", text: "No rooms here." })); return; }
+    ids.forEach(function (rid) {
+      var r = SCHED.rooms[rid];
+      append(list, el("div", { class: "tlrow" },
+        el("div", { class: "lab" },
+          el("button", { class: "rno", type: "button", text: r.number || rid, title: r.name + " — show week", onclick: function () { openWeek(rid); } }),
+          el("small", { text: "Floor " + r.floor })),
+        timelineEl(rid, S.bday, on)));
+    });
+  }
+
+  function openWeek(rid) {
+    var r = SCHED.rooms[rid], dlg = $("dlg");
+    $("dlgTitle").textContent = r.name;
+    $("dlgSub").textContent = (r.building_name || r.building) + " · floor " + r.floor + " · " +
+      (S.anyWeek ? "any week of the term" : S.week ? "week of " + addDays(S.week, -weekday(S.week)) : "upcoming days");
+    renderAxis($("dlgAxis"));
+    var list = $("dlgList"); clear(list);
+    DAYS.forEach(function (d) {
+      var on = dateFor(d);
+      var off = on != null && SCHED.periodIndex(on) == null;
+      append(list, el("div", { class: "tlrow" },
+        el("div", { class: "lab" }, el("b", { text: DAY_LONG[d] }), el("small", { text: on ? on + (off ? " (no classes)" : "") : "any week" })),
+        timelineEl(rid, d, on)));
+    });
+    hideTip();
+    if (typeof dlg.showModal === "function") { if (!dlg.open) dlg.showModal(); } else dlg.setAttribute("open", "");
+  }
+
+  // ---------------------------------------------------------------- wiring
+  function renderAll() {
+    weekNote();
+    if (S.view === "grid") { renderGrid(); renderSelection(); }
+    else if (S.view === "search") renderSearch();
+    else renderBuildings();
+  }
+  function setView(v) {
+    S.view = v; store("view", v);
+    ["grid", "search", "bldg"].forEach(function (k) {
+      $("view-" + k).hidden = k !== v;
+      document.querySelector('.tab[data-view="' + k + '"]').setAttribute("aria-selected", k === v ? "true" : "false");
+    });
+    if (v === "bldg" && S.building) { S.bbuilding = S.building; S.bfloor = S.floor; }
+    hideTip();
+    renderAll();
+  }
+  function bind() {
+    document.querySelectorAll(".tab").forEach(function (t) {
+      t.addEventListener("click", function () { setView(t.getAttribute("data-view")); });
+    });
+    $("filepick").addEventListener("change", function (e) { if (e.target.files.length) loadFiles(e.target.files); e.target.value = ""; });
+    $("weekDate").addEventListener("change", function () { S.week = $("weekDate").value; if (S.week) { S.anyWeek = false; $("anyWeek").checked = false; } renderAll(); });
+    $("anyWeek").addEventListener("change", function () { S.anyWeek = $("anyWeek").checked; renderAll(); });
+    $("bldg").addEventListener("change", function () { S.building = $("bldg").value; S.floor = ""; refreshFloors(); if (S.building) { S.bbuilding = S.building; S.bfloor = ""; } renderAll(); });
+    $("floor").addEventListener("change", function () { S.floor = $("floor").value; S.bfloor = S.floor; renderAll(); });
+    $("minFree").addEventListener("change", function () { S.minFree = +$("minFree").value; renderAll(); });
+    $("step").addEventListener("change", function () {
+      S.step = +$("step").value;
+      if (S.sel && S.sel.kind === "range") S.sel = { kind: "point", day: S.sel.day, t: SCHED.hs + Math.min(S.sel.a, S.sel.b) * (S.step === 15 ? 30 : 15) };
+      renderAll();
+    });
+    $("gday").addEventListener("change", function () { setPoint($("gday").value, S.gtime); });
+    $("gtime").addEventListener("change", function () { var m = clockToMin($("gtime").value); if (m != null) setPoint(S.gday, m); });
+    $("gnow").addEventListener("click", function () {
+      var d = DAY_CODES[weekday(HRF.todayIso())];
+      if (DAYS.indexOf(d) < 0) d = DAYS[0];
+      $("gday").value = d; $("gtime").value = minToClock(nowMin());
+      setPoint(d, nowMin());
+    });
+    $("extend").addEventListener("click", function () {
+      S.extend = !S.extend; $("extend").setAttribute("aria-pressed", S.extend ? "true" : "false");
+    });
+    $("sday").addEventListener("change", function () { S.sday = $("sday").value; renderSearch(); });
+    $("stime").addEventListener("change", function () { var m = clockToMin($("stime").value); if (m != null) { S.stime = m; renderSearch(); } });
+    $("snow").addEventListener("click", function () {
+      var d = DAY_CODES[weekday(HRF.todayIso())];
+      if (DAYS.indexOf(d) < 0) d = DAYS[0];
+      S.sday = d; S.stime = nowMin(); $("sday").value = d; $("stime").value = minToClock(S.stime);
+      renderSearch();
+    });
+    $("dlgClose").addEventListener("click", function () { $("dlg").close ? $("dlg").close() : $("dlg").removeAttribute("open"); });
+    $("dlg").addEventListener("click", function (e) {
+      if (e.target !== $("dlg")) return;
+      var r = $("dlg").getBoundingClientRect();
+      if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) $("dlg").close();
+    });
+    $("dlg").addEventListener("close", hideTip);
+    bindGrid();
+    bindTips();
+    var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { if (SCHED && S.view === "bldg") renderBuildings(); }, 150); });
+    // Keep the "now" marker current.
+    setInterval(function () { if (SCHED && S.view === "bldg" && !$("dlg").open) renderBuildings(); }, 60000);
+  }
+
+  bind();
+  var v = store("view");
+  if (v === "grid" || v === "search" || v === "bldg") {
+    S.view = v;
+    ["grid", "search", "bldg"].forEach(function (k) {
+      $("view-" + k).hidden = k !== v;
+      document.querySelector('.tab[data-view="' + k + '"]').setAttribute("aria-selected", k === v ? "true" : "false");
+    });
+  }
+  boot();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,2674 @@
+{
+ "term": "2026 Fall",
+ "generated_at": "2026-10-14T23:20:53",
+ "caveat": "'Open' means no class is scheduled in the room per CUNY Global Search. It does not mean the room is unlocked, unreserved, or free of events.",
+ "buildings": [
+  {
+   "id": "BAKER",
+   "name": "Baker",
+   "aliases": [
+    "BAKER",
+    "Baker",
+    "Baker Theatre"
+   ],
+   "floors": [
+    {
+     "number": 2,
+     "rooms": [
+      {
+       "id": "BAKER-BTB220",
+       "number": "BTB220",
+       "raw_names": [
+        "Baker BTB220"
+       ],
+       "sections": 8
+      },
+      {
+       "id": "BAKER-BTB230",
+       "number": "BTB230",
+       "raw_names": [
+        "Baker BTB230"
+       ],
+       "sections": 10
+      },
+      {
+       "id": "BAKER-BTB240",
+       "number": "BTB240",
+       "raw_names": [
+        "Baker BTB240"
+       ],
+       "sections": 7
+      },
+      {
+       "id": "BAKER-BTB260",
+       "number": "BTB260",
+       "raw_names": [
+        "Baker BTB260"
+       ],
+       "sections": 9
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "rooms": [
+      {
+       "id": "BAKER-BTB330",
+       "number": "BTB330",
+       "raw_names": [
+        "Baker BTB330"
+       ],
+       "sections": 11
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "rooms": [
+      {
+       "id": "BAKER-BTB420",
+       "number": "BTB420",
+       "raw_names": [
+        "Baker BTB420"
+       ],
+       "sections": 6
+      },
+      {
+       "id": "BAKER-BTB460",
+       "number": "BTB460",
+       "raw_names": [
+        "Baker BTB460"
+       ],
+       "sections": 5
+      }
+     ]
+    },
+    {
+     "number": 6,
+     "rooms": [
+      {
+       "id": "BAKER-BTB620",
+       "number": "BTB620",
+       "raw_names": [
+        "Baker BTB620"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "BAKER-BTB680",
+       "number": "BTB680",
+       "raw_names": [
+        "Baker BTB680"
+       ],
+       "sections": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "CAMPUSSCH",
+   "name": "Campus Sch",
+   "aliases": [
+    "CAMPUSSCH",
+    "Campus Sch"
+   ],
+   "floors": [
+    {
+     "number": 3,
+     "rooms": [
+      {
+       "id": "CAMPUSSCH-304",
+       "number": "304",
+       "raw_names": [
+        "Campus Sch 304"
+       ],
+       "sections": 8
+      },
+      {
+       "id": "CAMPUSSCH-306",
+       "number": "306",
+       "raw_names": [
+        "Campus Sch 306"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "CAMPUSSCH-308",
+       "number": "308",
+       "raw_names": [
+        "Campus Sch 308"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "CAMPUSSCH-310",
+       "number": "310",
+       "raw_names": [
+        "Campus Sch 310"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "CAMPUSSCH-312",
+       "number": "312",
+       "raw_names": [
+        "Campus Sch 312"
+       ],
+       "sections": 6
+      },
+      {
+       "id": "CAMPUSSCH-314",
+       "number": "314",
+       "raw_names": [
+        "Campus Sch 314"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "CAMPUSSCH-316",
+       "number": "316",
+       "raw_names": [
+        "Campus Sch 316"
+       ],
+       "sections": 6
+      },
+      {
+       "id": "CAMPUSSCH-318",
+       "number": "318",
+       "raw_names": [
+        "Campus Sch 318"
+       ],
+       "sections": 1
+      },
+      {
+       "id": "CAMPUSSCH-320",
+       "number": "320",
+       "raw_names": [
+        "Campus Sch 320"
+       ],
+       "sections": 2
+      },
+      {
+       "id": "CAMPUSSCH-322",
+       "number": "322",
+       "raw_names": [
+        "Campus Sch 322"
+       ],
+       "sections": 2
+      },
+      {
+       "id": "CAMPUSSCH-324",
+       "number": "324",
+       "raw_names": [
+        "Campus Sch 324"
+       ],
+       "sections": 1
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "rooms": [
+      {
+       "id": "CAMPUSSCH-404",
+       "number": "404",
+       "raw_names": [
+        "Campus Sch 404"
+       ],
+       "sections": 5
+      },
+      {
+       "id": "CAMPUSSCH-406",
+       "number": "406",
+       "raw_names": [
+        "Campus Sch 406"
+       ],
+       "sections": 4
+      },
+      {
+       "id": "CAMPUSSCH-408",
+       "number": "408",
+       "raw_names": [
+        "Campus Sch 408"
+       ],
+       "sections": 5
+      },
+      {
+       "id": "CAMPUSSCH-410",
+       "number": "410",
+       "raw_names": [
+        "Campus Sch 410"
+       ],
+       "sections": 4
+      },
+      {
+       "id": "CAMPUSSCH-420",
+       "number": "420",
+       "raw_names": [
+        "Campus Sch 420"
+       ],
+       "sections": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "EAST",
+   "name": "East Bldg",
+   "aliases": [
+    "EAST",
+    "East",
+    "East Bldg",
+    "HE",
+    "Hunter East"
+   ],
+   "floors": [
+    {
+     "number": "B",
+     "rooms": [
+      {
+       "id": "EAST-EB118",
+       "number": "EB118",
+       "raw_names": [
+        "East Bldg EB118"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "EAST-EB121",
+       "number": "EB121",
+       "raw_names": [
+        "East Bldg EB121"
+       ],
+       "sections": 10
+      }
+     ]
+    },
+    {
+     "number": 1,
+     "rooms": [
+      {
+       "id": "EAST-E109",
+       "number": "E109",
+       "raw_names": [
+        "East Bldg E109"
+       ],
+       "sections": 14
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "rooms": [
+      {
+       "id": "EAST-E402",
+       "number": "E402",
+       "raw_names": [
+        "East Bldg E402"
+       ],
+       "sections": 6
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "rooms": [
+      {
+       "id": "EAST-E511",
+       "number": "E511",
+       "raw_names": [
+        "East Bldg E511"
+       ],
+       "sections": 8
+      },
+      {
+       "id": "EAST-E512",
+       "number": "E512",
+       "raw_names": [
+        "East Bldg E512"
+       ],
+       "sections": 9
+      }
+     ]
+    },
+    {
+     "number": 6,
+     "rooms": [
+      {
+       "id": "EAST-E602A",
+       "number": "E602A",
+       "raw_names": [
+        "East Bldg E602A"
+       ],
+       "sections": 5
+      },
+      {
+       "id": "EAST-E617",
+       "number": "E617",
+       "raw_names": [
+        "East Bldg E617"
+       ],
+       "sections": 8
+      },
+      {
+       "id": "EAST-E618A",
+       "number": "E618A",
+       "raw_names": [
+        "East Bldg E618A"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "EAST-E619A",
+       "number": "E619A",
+       "raw_names": [
+        "East Bldg E619A"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "EAST-E620A",
+       "number": "E620A",
+       "raw_names": [
+        "East Bldg E620A"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "EAST-E631A",
+       "number": "E631A",
+       "raw_names": [
+        "East Bldg E631A"
+       ],
+       "sections": 6
+      }
+     ]
+    },
+    {
+     "number": 7,
+     "rooms": [
+      {
+       "id": "EAST-E706",
+       "number": "E706",
+       "raw_names": [
+        "East Bldg E706"
+       ],
+       "sections": 6
+      }
+     ]
+    },
+    {
+     "number": 8,
+     "rooms": [
+      {
+       "id": "EAST-E819",
+       "number": "E819",
+       "raw_names": [
+        "East Bldg E819"
+       ],
+       "sections": 3
+      }
+     ]
+    },
+    {
+     "number": 9,
+     "rooms": [
+      {
+       "id": "EAST-E920",
+       "number": "E920",
+       "raw_names": [
+        "East Bldg E920"
+       ],
+       "sections": 8
+      },
+      {
+       "id": "EAST-E921",
+       "number": "E921",
+       "raw_names": [
+        "East Bldg E921"
+       ],
+       "sections": 15
+      },
+      {
+       "id": "EAST-E922",
+       "number": "E922",
+       "raw_names": [
+        "East Bldg E922"
+       ],
+       "sections": 15
+      }
+     ]
+    },
+    {
+     "number": 11,
+     "rooms": [
+      {
+       "id": "EAST-E1130",
+       "number": "E1130",
+       "raw_names": [
+        "East Bldg E1130"
+       ],
+       "sections": 3
+      }
+     ]
+    },
+    {
+     "number": 12,
+     "rooms": [
+      {
+       "id": "EAST-E1203",
+       "number": "E1203",
+       "raw_names": [
+        "East Bldg E1203"
+       ],
+       "sections": 10
+      },
+      {
+       "id": "EAST-E1218",
+       "number": "E1218",
+       "raw_names": [
+        "East Bldg E1218"
+       ],
+       "sections": 16
+      },
+      {
+       "id": "EAST-E1220",
+       "number": "E1220",
+       "raw_names": [
+        "East Bldg E1220"
+       ],
+       "sections": 5
+      }
+     ]
+    },
+    {
+     "number": 14,
+     "rooms": [
+      {
+       "id": "EAST-E1431",
+       "number": "E1431",
+       "raw_names": [
+        "East Bldg E1431"
+       ],
+       "sections": 12
+      },
+      {
+       "id": "EAST-E1442",
+       "number": "E1442",
+       "raw_names": [
+        "East Bldg E1442"
+       ],
+       "sections": 13
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "NORTH",
+   "name": "North Bldg",
+   "aliases": [
+    "HN",
+    "Hunter North",
+    "NORTH",
+    "North",
+    "North Bldg"
+   ],
+   "floors": [
+    {
+     "number": null,
+     "rooms": [
+      {
+       "id": "NORTH-11003",
+       "number": "11003",
+       "raw_names": [
+        "North Bldg 11003"
+       ],
+       "sections": 7
+      },
+      {
+       "id": "NORTH-11005",
+       "number": "11005",
+       "raw_names": [
+        "North Bldg 11005"
+       ],
+       "sections": 6
+      },
+      {
+       "id": "NORTH-11034A",
+       "number": "11034A",
+       "raw_names": [
+        "North Bldg 11034A"
+       ],
+       "sections": 7
+      },
+      {
+       "id": "NORTH-11034B",
+       "number": "11034B",
+       "raw_names": [
+        "North Bldg 11034B"
+       ],
+       "sections": 2
+      },
+      {
+       "id": "NORTH-11072",
+       "number": "11072",
+       "raw_names": [
+        "North Bldg 11072"
+       ],
+       "sections": 7
+      },
+      {
+       "id": "NORTH-11083",
+       "number": "11083",
+       "raw_names": [
+        "North Bldg 11083"
+       ],
+       "sections": 11
+      },
+      {
+       "id": "NORTH-11099",
+       "number": "11099",
+       "raw_names": [
+        "North Bldg 11099"
+       ],
+       "sections": 1
+      },
+      {
+       "id": "NORTH-11106",
+       "number": "11106",
+       "raw_names": [
+        "North Bldg 11106"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "NORTH-M157",
+       "number": "M157",
+       "raw_names": [
+        "North Bldg M157"
+       ],
+       "sections": 14
+      }
+     ]
+    },
+    {
+     "number": "C",
+     "rooms": [
+      {
+       "id": "NORTH-C002",
+       "number": "C002",
+       "raw_names": [
+        "North Bldg C002"
+       ],
+       "sections": 9
+      },
+      {
+       "id": "NORTH-C004",
+       "number": "C004",
+       "raw_names": [
+        "North Bldg C004"
+       ],
+       "sections": 16
+      },
+      {
+       "id": "NORTH-C005",
+       "number": "C005",
+       "raw_names": [
+        "North Bldg C005"
+       ],
+       "sections": 10
+      },
+      {
+       "id": "NORTH-C100",
+       "number": "C100",
+       "raw_names": [
+        "North Bldg C100"
+       ],
+       "sections": 16
+      },
+      {
+       "id": "NORTH-C101",
+       "number": "C101",
+       "raw_names": [
+        "North Bldg C101"
+       ],
+       "sections": 18
+      },
+      {
+       "id": "NORTH-C102",
+       "number": "C102",
+       "raw_names": [
+        "North Bldg C102"
+       ],
+       "sections": 13
+      },
+      {
+       "id": "NORTH-C103",
+       "number": "C103",
+       "raw_names": [
+        "North Bldg C103"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "NORTH-C104",
+       "number": "C104",
+       "raw_names": [
+        "North Bldg C104"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "NORTH-C105",
+       "number": "C105",
+       "raw_names": [
+        "North Bldg C105"
+       ],
+       "sections": 1
+      },
+      {
+       "id": "NORTH-C106",
+       "number": "C106",
+       "raw_names": [
+        "North Bldg C106"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "NORTH-C107",
+       "number": "C107",
+       "raw_names": [
+        "North Bldg C107"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "NORTH-C108",
+       "number": "C108",
+       "raw_names": [
+        "North Bldg C108"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "NORTH-C109",
+       "number": "C109",
+       "raw_names": [
+        "North Bldg C109"
+       ],
+       "sections": 73
+      },
+      {
+       "id": "NORTH-C110",
+       "number": "C110",
+       "raw_names": [
+        "North Bldg C110"
+       ],
+       "sections": 16
+      },
+      {
+       "id": "NORTH-C111",
+       "number": "C111",
+       "raw_names": [
+        "North Bldg C111"
+       ],
+       "sections": 20
+      },
+      {
+       "id": "NORTH-C112",
+       "number": "C112",
+       "raw_names": [
+        "North Bldg C112"
+       ],
+       "sections": 20
+      },
+      {
+       "id": "NORTH-C113",
+       "number": "C113",
+       "raw_names": [
+        "North Bldg C113"
+       ],
+       "sections": 15
+      },
+      {
+       "id": "NORTH-C114",
+       "number": "C114",
+       "raw_names": [
+        "North Bldg C114"
+       ],
+       "sections": 18
+      },
+      {
+       "id": "NORTH-C115",
+       "number": "C115",
+       "raw_names": [
+        "North Bldg C115"
+       ],
+       "sections": 7
+      }
+     ]
+    },
+    {
+     "number": 1,
+     "rooms": [
+      {
+       "id": "NORTH-118",
+       "number": "118",
+       "raw_names": [
+        "North Bldg 118"
+       ],
+       "sections": 57
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "rooms": [
+      {
+       "id": "NORTH-305",
+       "number": "305",
+       "raw_names": [
+        "North Bldg 305"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "NORTH-306",
+       "number": "306",
+       "raw_names": [
+        "North Bldg 306"
+       ],
+       "sections": 13
+      },
+      {
+       "id": "NORTH-320",
+       "number": "320",
+       "raw_names": [
+        "North Bldg 320"
+       ],
+       "sections": 55
+      },
+      {
+       "id": "NORTH-321",
+       "number": "321",
+       "raw_names": [
+        "North Bldg 321"
+       ],
+       "sections": 17
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "rooms": [
+      {
+       "id": "NORTH-404",
+       "number": "404",
+       "raw_names": [
+        "North Bldg 404"
+       ],
+       "sections": 15
+      },
+      {
+       "id": "NORTH-405",
+       "number": "405",
+       "raw_names": [
+        "North Bldg 405"
+       ],
+       "sections": 10
+      },
+      {
+       "id": "NORTH-406",
+       "number": "406",
+       "raw_names": [
+        "North Bldg 406"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "NORTH-407",
+       "number": "407",
+       "raw_names": [
+        "North Bldg 407"
+       ],
+       "sections": 15
+      },
+      {
+       "id": "NORTH-424",
+       "number": "424",
+       "raw_names": [
+        "North Bldg 424"
+       ],
+       "sections": 6
+      },
+      {
+       "id": "NORTH-431",
+       "number": "431",
+       "raw_names": [
+        "North Bldg 431"
+       ],
+       "sections": 11
+      },
+      {
+       "id": "NORTH-432",
+       "number": "432",
+       "raw_names": [
+        "North Bldg 432"
+       ],
+       "sections": 19
+      },
+      {
+       "id": "NORTH-436",
+       "number": "436",
+       "raw_names": [
+        "North Bldg 436"
+       ],
+       "sections": 5
+      },
+      {
+       "id": "NORTH-470D",
+       "number": "470D",
+       "raw_names": [
+        "North Bldg 470D"
+       ],
+       "sections": 9
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "rooms": [
+      {
+       "id": "NORTH-502",
+       "number": "502",
+       "raw_names": [
+        "North Bldg 502"
+       ],
+       "sections": 12
+      },
+      {
+       "id": "NORTH-503",
+       "number": "503",
+       "raw_names": [
+        "North Bldg 503"
+       ],
+       "sections": 13
+      },
+      {
+       "id": "NORTH-503A",
+       "number": "503A",
+       "raw_names": [
+        "North Bldg 503A"
+       ],
+       "sections": 12
+      },
+      {
+       "id": "NORTH-504",
+       "number": "504",
+       "raw_names": [
+        "North Bldg 504"
+       ],
+       "sections": 26
+      },
+      {
+       "id": "NORTH-506",
+       "number": "506",
+       "raw_names": [
+        "North Bldg 506"
+       ],
+       "sections": 16
+      },
+      {
+       "id": "NORTH-507",
+       "number": "507",
+       "raw_names": [
+        "North Bldg 507"
+       ],
+       "sections": 26
+      },
+      {
+       "id": "NORTH-510",
+       "number": "510",
+       "raw_names": [
+        "North Bldg 510"
+       ],
+       "sections": 20
+      },
+      {
+       "id": "NORTH-521",
+       "number": "521",
+       "raw_names": [
+        "North Bldg 521"
+       ],
+       "sections": 2
+      },
+      {
+       "id": "NORTH-531",
+       "number": "531",
+       "raw_names": [
+        "North Bldg 531"
+       ],
+       "sections": 18
+      },
+      {
+       "id": "NORTH-535",
+       "number": "535",
+       "raw_names": [
+        "North Bldg 535"
+       ],
+       "sections": 8
+      },
+      {
+       "id": "NORTH-536",
+       "number": "536",
+       "raw_names": [
+        "North Bldg 536"
+       ],
+       "sections": 19
+      },
+      {
+       "id": "NORTH-537",
+       "number": "537",
+       "raw_names": [
+        "North Bldg 537"
+       ],
+       "sections": 9
+      },
+      {
+       "id": "NORTH-543",
+       "number": "543",
+       "raw_names": [
+        "North Bldg 543"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "NORTH-544",
+       "number": "544",
+       "raw_names": [
+        "North Bldg 544"
+       ],
+       "sections": 9
+      }
+     ]
+    },
+    {
+     "number": 6,
+     "rooms": [
+      {
+       "id": "NORTH-612",
+       "number": "612",
+       "raw_names": [
+        "North Bldg 612"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "NORTH-614",
+       "number": "614",
+       "raw_names": [
+        "North Bldg 614"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "NORTH-629",
+       "number": "629",
+       "raw_names": [
+        "North Bldg 629"
+       ],
+       "sections": 7
+      },
+      {
+       "id": "NORTH-629C",
+       "number": "629C",
+       "raw_names": [
+        "North Bldg 629C"
+       ],
+       "sections": 1
+      },
+      {
+       "id": "NORTH-635A",
+       "number": "635A",
+       "raw_names": [
+        "North Bldg 635A"
+       ],
+       "sections": 26
+      }
+     ]
+    },
+    {
+     "number": 7,
+     "rooms": [
+      {
+       "id": "NORTH-710",
+       "number": "710",
+       "raw_names": [
+        "North Bldg 710"
+       ],
+       "sections": 20
+      },
+      {
+       "id": "NORTH-712",
+       "number": "712",
+       "raw_names": [
+        "North Bldg 712"
+       ],
+       "sections": 35
+      },
+      {
+       "id": "NORTH-717",
+       "number": "717",
+       "raw_names": [
+        "North Bldg 717"
+       ],
+       "sections": 20
+      },
+      {
+       "id": "NORTH-730",
+       "number": "730",
+       "raw_names": [
+        "North Bldg 730"
+       ],
+       "sections": 17
+      }
+     ]
+    },
+    {
+     "number": 8,
+     "rooms": [
+      {
+       "id": "NORTH-812",
+       "number": "812",
+       "raw_names": [
+        "North Bldg 812"
+       ],
+       "sections": 15
+      },
+      {
+       "id": "NORTH-813",
+       "number": "813",
+       "raw_names": [
+        "North Bldg 813"
+       ],
+       "sections": 2
+      },
+      {
+       "id": "NORTH-815",
+       "number": "815",
+       "raw_names": [
+        "North Bldg 815"
+       ],
+       "sections": 15
+      }
+     ]
+    },
+    {
+     "number": 9,
+     "rooms": [
+      {
+       "id": "NORTH-918B",
+       "number": "918B",
+       "raw_names": [
+        "North Bldg 918B"
+       ],
+       "sections": 15
+      },
+      {
+       "id": "NORTH-918H",
+       "number": "918H",
+       "raw_names": [
+        "North Bldg 918H"
+       ],
+       "sections": 7
+      },
+      {
+       "id": "NORTH-926C",
+       "number": "926C",
+       "raw_names": [
+        "North Bldg 926C"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "NORTH-931",
+       "number": "931",
+       "raw_names": [
+        "North Bldg 931"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "NORTH-937",
+       "number": "937",
+       "raw_names": [
+        "North Bldg 937"
+       ],
+       "sections": 18
+      },
+      {
+       "id": "NORTH-938",
+       "number": "938",
+       "raw_names": [
+        "North Bldg 938"
+       ],
+       "sections": 1
+      }
+     ]
+    },
+    {
+     "number": 10,
+     "rooms": [
+      {
+       "id": "NORTH-1001A",
+       "number": "1001A",
+       "raw_names": [
+        "North Bldg 1001A"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "NORTH-1001B",
+       "number": "1001B",
+       "raw_names": [
+        "North Bldg 1001B"
+       ],
+       "sections": 4
+      },
+      {
+       "id": "NORTH-1001C",
+       "number": "1001C",
+       "raw_names": [
+        "North Bldg 1001C"
+       ],
+       "sections": 12
+      },
+      {
+       "id": "NORTH-1001D",
+       "number": "1001D",
+       "raw_names": [
+        "North Bldg 1001D"
+       ],
+       "sections": 10
+      },
+      {
+       "id": "NORTH-1001E",
+       "number": "1001E",
+       "raw_names": [
+        "North Bldg 1001E"
+       ],
+       "sections": 7
+      },
+      {
+       "id": "NORTH-1001F",
+       "number": "1001F",
+       "raw_names": [
+        "North Bldg 1001F"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "NORTH-1004",
+       "number": "1004",
+       "raw_names": [
+        "North Bldg 1004"
+       ],
+       "sections": 4
+      },
+      {
+       "id": "NORTH-1021",
+       "number": "1021",
+       "raw_names": [
+        "North Bldg 1021"
+       ],
+       "sections": 13
+      },
+      {
+       "id": "NORTH-1022",
+       "number": "1022",
+       "raw_names": [
+        "North Bldg 1022"
+       ],
+       "sections": 11
+      },
+      {
+       "id": "NORTH-1028",
+       "number": "1028",
+       "raw_names": [
+        "North Bldg 1028"
+       ],
+       "sections": 15
+      },
+      {
+       "id": "NORTH-1036",
+       "number": "1036",
+       "raw_names": [
+        "North Bldg 1036"
+       ],
+       "sections": 20
+      },
+      {
+       "id": "NORTH-1090B-1",
+       "number": "1090B-1",
+       "raw_names": [
+        "North Bldg 1090B-1"
+       ],
+       "sections": 6
+      },
+      {
+       "id": "NORTH-1090B-2",
+       "number": "1090B-2",
+       "raw_names": [
+        "North Bldg 1090B-2"
+       ],
+       "sections": 11
+      }
+     ]
+    },
+    {
+     "number": 12,
+     "rooms": [
+      {
+       "id": "NORTH-1230A",
+       "number": "1230A",
+       "raw_names": [
+        "North Bldg 1230A"
+       ],
+       "sections": 1
+      },
+      {
+       "id": "NORTH-1239",
+       "number": "1239",
+       "raw_names": [
+        "North Bldg 1239"
+       ],
+       "sections": 1
+      }
+     ]
+    },
+    {
+     "number": 13,
+     "rooms": [
+      {
+       "id": "NORTH-1305G",
+       "number": "1305G",
+       "raw_names": [
+        "North Bldg 1305G"
+       ],
+       "sections": 29
+      },
+      {
+       "id": "NORTH-1311",
+       "number": "1311",
+       "raw_names": [
+        "North Bldg 1311"
+       ],
+       "sections": 12
+      },
+      {
+       "id": "NORTH-1318",
+       "number": "1318",
+       "raw_names": [
+        "North Bldg 1318"
+       ],
+       "sections": 24
+      }
+     ]
+    },
+    {
+     "number": 14,
+     "rooms": [
+      {
+       "id": "NORTH-1403",
+       "number": "1403",
+       "raw_names": [
+        "North Bldg 1403"
+       ],
+       "sections": 25
+      },
+      {
+       "id": "NORTH-1404A",
+       "number": "1404A",
+       "raw_names": [
+        "North Bldg 1404A"
+       ],
+       "sections": 19
+      },
+      {
+       "id": "NORTH-1404B",
+       "number": "1404B",
+       "raw_names": [
+        "North Bldg 1404B"
+       ],
+       "sections": 15
+      },
+      {
+       "id": "NORTH-1412N",
+       "number": "1412N",
+       "raw_names": [
+        "North Bldg 1412N"
+       ],
+       "sections": 8
+      },
+      {
+       "id": "NORTH-1412S",
+       "number": "1412S",
+       "raw_names": [
+        "North Bldg 1412S"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "NORTH-1413A",
+       "number": "1413A",
+       "raw_names": [
+        "North Bldg 1413A"
+       ],
+       "sections": 9
+      }
+     ]
+    },
+    {
+     "number": 15,
+     "rooms": [
+      {
+       "id": "NORTH-1501",
+       "number": "1501",
+       "raw_names": [
+        "North Bldg 1501"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "NORTH-1502",
+       "number": "1502",
+       "raw_names": [
+        "North Bldg 1502"
+       ],
+       "sections": 15
+      },
+      {
+       "id": "NORTH-1503",
+       "number": "1503",
+       "raw_names": [
+        "North Bldg 1503"
+       ],
+       "sections": 10
+      },
+      {
+       "id": "NORTH-1516",
+       "number": "1516",
+       "raw_names": [
+        "North Bldg 1516"
+       ],
+       "sections": 15
+      },
+      {
+       "id": "NORTH-1527",
+       "number": "1527",
+       "raw_names": [
+        "North Bldg 1527"
+       ],
+       "sections": 17
+      }
+     ]
+    },
+    {
+     "number": 16,
+     "rooms": [
+      {
+       "id": "NORTH-1600",
+       "number": "1600",
+       "raw_names": [
+        "North Bldg 1600"
+       ],
+       "sections": 5
+      },
+      {
+       "id": "NORTH-1602",
+       "number": "1602",
+       "raw_names": [
+        "North Bldg 1602"
+       ],
+       "sections": 15
+      },
+      {
+       "id": "NORTH-1603",
+       "number": "1603",
+       "raw_names": [
+        "North Bldg 1603"
+       ],
+       "sections": 6
+      },
+      {
+       "id": "NORTH-1604",
+       "number": "1604",
+       "raw_names": [
+        "North Bldg 1604"
+       ],
+       "sections": 8
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ROOSEVELT",
+   "name": "Roosevelt",
+   "aliases": [
+    "ROOSEVELT",
+    "Roosevelt",
+    "Roosevelt House"
+   ],
+   "floors": [
+    {
+     "number": 2,
+     "rooms": [
+      {
+       "id": "ROOSEVELT-202",
+       "number": "202",
+       "raw_names": [
+        "Roosevelt 202"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "ROOSEVELT-204",
+       "number": "204",
+       "raw_names": [
+        "Roosevelt 204"
+       ],
+       "sections": 7
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "rooms": [
+      {
+       "id": "ROOSEVELT-304",
+       "number": "304",
+       "raw_names": [
+        "Roosevelt 304"
+       ],
+       "sections": 9
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "SILBERMAN",
+   "name": "Silberman",
+   "aliases": [
+    "SILBERMAN",
+    "Silberman"
+   ],
+   "floors": [
+    {
+     "number": null,
+     "rooms": [
+      {
+       "id": "SILBERMAN-C-14",
+       "number": "C-14",
+       "raw_names": [
+        "Silberman C-14"
+       ],
+       "sections": 2
+      }
+     ]
+    },
+    {
+     "number": 1,
+     "rooms": [
+      {
+       "id": "SILBERMAN-115",
+       "number": "115",
+       "raw_names": [
+        "Silberman 115"
+       ],
+       "sections": 3
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "rooms": [
+      {
+       "id": "SILBERMAN-201",
+       "number": "201",
+       "raw_names": [
+        "Silberman 201"
+       ],
+       "sections": 11
+      },
+      {
+       "id": "SILBERMAN-212",
+       "number": "212",
+       "raw_names": [
+        "Silberman 212"
+       ],
+       "sections": 7
+      },
+      {
+       "id": "SILBERMAN-214",
+       "number": "214",
+       "raw_names": [
+        "Silberman 214"
+       ],
+       "sections": 11
+      },
+      {
+       "id": "SILBERMAN-215",
+       "number": "215",
+       "raw_names": [
+        "Silberman 215"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "SILBERMAN-216",
+       "number": "216",
+       "raw_names": [
+        "Silberman 216"
+       ],
+       "sections": 4
+      },
+      {
+       "id": "SILBERMAN-217",
+       "number": "217",
+       "raw_names": [
+        "Silberman 217"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "SILBERMAN-218",
+       "number": "218",
+       "raw_names": [
+        "Silberman 218"
+       ],
+       "sections": 8
+      },
+      {
+       "id": "SILBERMAN-219",
+       "number": "219",
+       "raw_names": [
+        "Silberman 219"
+       ],
+       "sections": 1
+      },
+      {
+       "id": "SILBERMAN-220",
+       "number": "220",
+       "raw_names": [
+        "Silberman 220"
+       ],
+       "sections": 11
+      },
+      {
+       "id": "SILBERMAN-221",
+       "number": "221",
+       "raw_names": [
+        "Silberman 221"
+       ],
+       "sections": 1
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "rooms": [
+      {
+       "id": "SILBERMAN-318",
+       "number": "318",
+       "raw_names": [
+        "Silberman 318"
+       ],
+       "sections": 2
+      },
+      {
+       "id": "SILBERMAN-320",
+       "number": "320",
+       "raw_names": [
+        "Silberman 320"
+       ],
+       "sections": 2
+      },
+      {
+       "id": "SILBERMAN-322",
+       "number": "322",
+       "raw_names": [
+        "Silberman 322"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "SILBERMAN-324",
+       "number": "324",
+       "raw_names": [
+        "Silberman 324"
+       ],
+       "sections": 18
+      },
+      {
+       "id": "SILBERMAN-326",
+       "number": "326",
+       "raw_names": [
+        "Silberman 326"
+       ],
+       "sections": 15
+      },
+      {
+       "id": "SILBERMAN-327",
+       "number": "327",
+       "raw_names": [
+        "Silberman 327"
+       ],
+       "sections": 12
+      },
+      {
+       "id": "SILBERMAN-328",
+       "number": "328",
+       "raw_names": [
+        "Silberman 328"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "SILBERMAN-329",
+       "number": "329",
+       "raw_names": [
+        "Silberman 329"
+       ],
+       "sections": 16
+      },
+      {
+       "id": "SILBERMAN-330",
+       "number": "330",
+       "raw_names": [
+        "Silberman 330"
+       ],
+       "sections": 12
+      },
+      {
+       "id": "SILBERMAN-331",
+       "number": "331",
+       "raw_names": [
+        "Silberman 331"
+       ],
+       "sections": 8
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "THOMHUNTER",
+   "name": "ThomHunter",
+   "aliases": [
+    "TH",
+    "THOMHUNTER",
+    "ThomHunter",
+    "Thomas Hunter",
+    "Thomas Hunter Hall"
+   ],
+   "floors": [
+    {
+     "number": 1,
+     "rooms": [
+      {
+       "id": "THOMHUNTER-109",
+       "number": "109",
+       "raw_names": [
+        "ThomHunter 109"
+       ],
+       "sections": 11
+      },
+      {
+       "id": "THOMHUNTER-118",
+       "number": "118",
+       "raw_names": [
+        "ThomHunter 118"
+       ],
+       "sections": 2
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "rooms": [
+      {
+       "id": "THOMHUNTER-405",
+       "number": "405",
+       "raw_names": [
+        "ThomHunter 405"
+       ],
+       "sections": 8
+      },
+      {
+       "id": "THOMHUNTER-407",
+       "number": "407",
+       "raw_names": [
+        "ThomHunter 407"
+       ],
+       "sections": 13
+      },
+      {
+       "id": "THOMHUNTER-408",
+       "number": "408",
+       "raw_names": [
+        "ThomHunter 408"
+       ],
+       "sections": 6
+      },
+      {
+       "id": "THOMHUNTER-412",
+       "number": "412",
+       "raw_names": [
+        "ThomHunter 412"
+       ],
+       "sections": 12
+      },
+      {
+       "id": "THOMHUNTER-414",
+       "number": "414",
+       "raw_names": [
+        "ThomHunter 414"
+       ],
+       "sections": 13
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "rooms": [
+      {
+       "id": "THOMHUNTER-518",
+       "number": "518",
+       "raw_names": [
+        "ThomHunter 518"
+       ],
+       "sections": 8
+      },
+      {
+       "id": "THOMHUNTER-520",
+       "number": "520",
+       "raw_names": [
+        "ThomHunter 520"
+       ],
+       "sections": 6
+      }
+     ]
+    },
+    {
+     "number": 6,
+     "rooms": [
+      {
+       "id": "THOMHUNTER-601",
+       "number": "601",
+       "raw_names": [
+        "ThomHunter 601"
+       ],
+       "sections": 6
+      },
+      {
+       "id": "THOMHUNTER-609",
+       "number": "609",
+       "raw_names": [
+        "ThomHunter 609"
+       ],
+       "sections": 9
+      }
+     ]
+    },
+    {
+     "number": 7,
+     "rooms": [
+      {
+       "id": "THOMHUNTER-700",
+       "number": "700",
+       "raw_names": [
+        "ThomHunter 700"
+       ],
+       "sections": 8
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "WEST",
+   "name": "West Bldg",
+   "aliases": [
+    "HW",
+    "Hunter West",
+    "WEST",
+    "West",
+    "West Bldg"
+   ],
+   "floors": [
+    {
+     "number": null,
+     "rooms": [
+      {
+       "id": "WEST-WB130",
+       "number": "WB130",
+       "raw_names": [
+        "West Bldg WB130"
+       ],
+       "sections": 8
+      }
+     ]
+    },
+    {
+     "number": 1,
+     "rooms": [
+      {
+       "id": "WEST-W113",
+       "number": "W113",
+       "raw_names": [
+        "West Bldg W113"
+       ],
+       "sections": 26
+      },
+      {
+       "id": "WEST-W117",
+       "number": "W117",
+       "raw_names": [
+        "West Bldg W117"
+       ],
+       "sections": 21
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "rooms": [
+      {
+       "id": "WEST-W204",
+       "number": "W204",
+       "raw_names": [
+        "West Bldg W204"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "WEST-W205",
+       "number": "W205",
+       "raw_names": [
+        "West Bldg W205"
+       ],
+       "sections": 22
+      },
+      {
+       "id": "WEST-W206",
+       "number": "W206",
+       "raw_names": [
+        "West Bldg W206"
+       ],
+       "sections": 16
+      },
+      {
+       "id": "WEST-W207",
+       "number": "W207",
+       "raw_names": [
+        "West Bldg W207"
+       ],
+       "sections": 22
+      },
+      {
+       "id": "WEST-W208",
+       "number": "W208",
+       "raw_names": [
+        "West Bldg W208"
+       ],
+       "sections": 28
+      },
+      {
+       "id": "WEST-W217",
+       "number": "W217",
+       "raw_names": [
+        "West Bldg W217"
+       ],
+       "sections": 25
+      },
+      {
+       "id": "WEST-W224",
+       "number": "W224",
+       "raw_names": [
+        "West Bldg W224"
+       ],
+       "sections": 11
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "rooms": [
+      {
+       "id": "WEST-W309",
+       "number": "W309",
+       "raw_names": [
+        "West Bldg W309"
+       ],
+       "sections": 9
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "rooms": [
+      {
+       "id": "WEST-W404",
+       "number": "W404",
+       "raw_names": [
+        "West Bldg W404"
+       ],
+       "sections": 26
+      },
+      {
+       "id": "WEST-W405",
+       "number": "W405",
+       "raw_names": [
+        "West Bldg W405"
+       ],
+       "sections": 16
+      },
+      {
+       "id": "WEST-W406",
+       "number": "W406",
+       "raw_names": [
+        "West Bldg W406"
+       ],
+       "sections": 16
+      },
+      {
+       "id": "WEST-W407",
+       "number": "W407",
+       "raw_names": [
+        "West Bldg W407"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "WEST-W408",
+       "number": "W408",
+       "raw_names": [
+        "West Bldg W408"
+       ],
+       "sections": 22
+      },
+      {
+       "id": "WEST-W409",
+       "number": "W409",
+       "raw_names": [
+        "West Bldg W409"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "WEST-W410",
+       "number": "W410",
+       "raw_names": [
+        "West Bldg W410"
+       ],
+       "sections": 16
+      },
+      {
+       "id": "WEST-W411",
+       "number": "W411",
+       "raw_names": [
+        "West Bldg W411"
+       ],
+       "sections": 19
+      },
+      {
+       "id": "WEST-W412",
+       "number": "W412",
+       "raw_names": [
+        "West Bldg W412"
+       ],
+       "sections": 16
+      },
+      {
+       "id": "WEST-W413",
+       "number": "W413",
+       "raw_names": [
+        "West Bldg W413"
+       ],
+       "sections": 21
+      },
+      {
+       "id": "WEST-W415",
+       "number": "W415",
+       "raw_names": [
+        "West Bldg W415"
+       ],
+       "sections": 21
+      },
+      {
+       "id": "WEST-W417",
+       "number": "W417",
+       "raw_names": [
+        "West Bldg W417"
+       ],
+       "sections": 3
+      },
+      {
+       "id": "WEST-W424",
+       "number": "W424",
+       "raw_names": [
+        "West Bldg W424"
+       ],
+       "sections": 12
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "rooms": [
+      {
+       "id": "WEST-W503",
+       "number": "W503",
+       "raw_names": [
+        "West Bldg W503"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "WEST-W504",
+       "number": "W504",
+       "raw_names": [
+        "West Bldg W504"
+       ],
+       "sections": 21
+      },
+      {
+       "id": "WEST-W505",
+       "number": "W505",
+       "raw_names": [
+        "West Bldg W505"
+       ],
+       "sections": 21
+      },
+      {
+       "id": "WEST-W506",
+       "number": "W506",
+       "raw_names": [
+        "West Bldg W506"
+       ],
+       "sections": 21
+      },
+      {
+       "id": "WEST-W507",
+       "number": "W507",
+       "raw_names": [
+        "West Bldg W507"
+       ],
+       "sections": 22
+      },
+      {
+       "id": "WEST-W508",
+       "number": "W508",
+       "raw_names": [
+        "West Bldg W508"
+       ],
+       "sections": 24
+      },
+      {
+       "id": "WEST-W509",
+       "number": "W509",
+       "raw_names": [
+        "West Bldg W509"
+       ],
+       "sections": 12
+      },
+      {
+       "id": "WEST-W509A",
+       "number": "W509A",
+       "raw_names": [
+        "West Bldg W509A"
+       ],
+       "sections": 19
+      },
+      {
+       "id": "WEST-W509B",
+       "number": "W509B",
+       "raw_names": [
+        "West Bldg W509B"
+       ],
+       "sections": 15
+      },
+      {
+       "id": "WEST-W509C",
+       "number": "W509C",
+       "raw_names": [
+        "West Bldg W509C"
+       ],
+       "sections": 18
+      },
+      {
+       "id": "WEST-W511",
+       "number": "W511",
+       "raw_names": [
+        "West Bldg W511"
+       ],
+       "sections": 22
+      },
+      {
+       "id": "WEST-W522",
+       "number": "W522",
+       "raw_names": [
+        "West Bldg W522"
+       ],
+       "sections": 13
+      }
+     ]
+    },
+    {
+     "number": 6,
+     "rooms": [
+      {
+       "id": "WEST-W603",
+       "number": "W603",
+       "raw_names": [
+        "West Bldg W603"
+       ],
+       "sections": 5
+      },
+      {
+       "id": "WEST-W604",
+       "number": "W604",
+       "raw_names": [
+        "West Bldg W604"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "WEST-W605",
+       "number": "W605",
+       "raw_names": [
+        "West Bldg W605"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "WEST-W606",
+       "number": "W606",
+       "raw_names": [
+        "West Bldg W606"
+       ],
+       "sections": 11
+      },
+      {
+       "id": "WEST-W608",
+       "number": "W608",
+       "raw_names": [
+        "West Bldg W608"
+       ],
+       "sections": 1
+      },
+      {
+       "id": "WEST-W609",
+       "number": "W609",
+       "raw_names": [
+        "West Bldg W609"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "WEST-W610",
+       "number": "W610",
+       "raw_names": [
+        "West Bldg W610"
+       ],
+       "sections": 16
+      },
+      {
+       "id": "WEST-W611",
+       "number": "W611",
+       "raw_names": [
+        "West Bldg W611"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "WEST-W615",
+       "number": "W615",
+       "raw_names": [
+        "West Bldg W615"
+       ],
+       "sections": 34
+      },
+      {
+       "id": "WEST-W619",
+       "number": "W619",
+       "raw_names": [
+        "West Bldg W619"
+       ],
+       "sections": 25
+      },
+      {
+       "id": "WEST-W623",
+       "number": "W623",
+       "raw_names": [
+        "West Bldg W623"
+       ],
+       "sections": 14
+      }
+     ]
+    },
+    {
+     "number": 7,
+     "rooms": [
+      {
+       "id": "WEST-W704",
+       "number": "W704",
+       "raw_names": [
+        "West Bldg W704"
+       ],
+       "sections": 18
+      },
+      {
+       "id": "WEST-W705",
+       "number": "W705",
+       "raw_names": [
+        "West Bldg W705"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "WEST-W706",
+       "number": "W706",
+       "raw_names": [
+        "West Bldg W706"
+       ],
+       "sections": 20
+      },
+      {
+       "id": "WEST-W707A",
+       "number": "W707A",
+       "raw_names": [
+        "West Bldg W707A"
+       ],
+       "sections": 12
+      },
+      {
+       "id": "WEST-W707B",
+       "number": "W707B",
+       "raw_names": [
+        "West Bldg W707B"
+       ],
+       "sections": 21
+      },
+      {
+       "id": "WEST-W707C",
+       "number": "W707C",
+       "raw_names": [
+        "West Bldg W707C"
+       ],
+       "sections": 21
+      },
+      {
+       "id": "WEST-W708",
+       "number": "W708",
+       "raw_names": [
+        "West Bldg W708"
+       ],
+       "sections": 20
+      },
+      {
+       "id": "WEST-W709",
+       "number": "W709",
+       "raw_names": [
+        "West Bldg W709"
+       ],
+       "sections": 20
+      },
+      {
+       "id": "WEST-W714",
+       "number": "W714",
+       "raw_names": [
+        "West Bldg W714"
+       ],
+       "sections": 22
+      }
+     ]
+    },
+    {
+     "number": 9,
+     "rooms": [
+      {
+       "id": "WEST-W938",
+       "number": "W938",
+       "raw_names": [
+        "West Bldg W938"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "WEST-W945",
+       "number": "W945",
+       "raw_names": [
+        "West Bldg W945"
+       ],
+       "sections": 6
+      }
+     ]
+    },
+    {
+     "number": 10,
+     "rooms": [
+      {
+       "id": "WEST-W1007",
+       "number": "W1007",
+       "raw_names": [
+        "West Bldg W1007"
+       ],
+       "sections": 6
+      },
+      {
+       "id": "WEST-W1032",
+       "number": "W1032",
+       "raw_names": [
+        "West Bldg W1032"
+       ],
+       "sections": 10
+      }
+     ]
+    },
+    {
+     "number": 11,
+     "rooms": [
+      {
+       "id": "WEST-W1111",
+       "number": "W1111",
+       "raw_names": [
+        "West Bldg W1111"
+       ],
+       "sections": 10
+      },
+      {
+       "id": "WEST-W1119",
+       "number": "W1119",
+       "raw_names": [
+        "West Bldg W1119"
+       ],
+       "sections": 11
+      },
+      {
+       "id": "WEST-W1133",
+       "number": "W1133",
+       "raw_names": [
+        "West Bldg W1133"
+       ],
+       "sections": 7
+      },
+      {
+       "id": "WEST-W1134",
+       "number": "W1134",
+       "raw_names": [
+        "West Bldg W1134"
+       ],
+       "sections": 6
+      },
+      {
+       "id": "WEST-W1137",
+       "number": "W1137",
+       "raw_names": [
+        "West Bldg W1137"
+       ],
+       "sections": 16
+      },
+      {
+       "id": "WEST-W1142",
+       "number": "W1142",
+       "raw_names": [
+        "West Bldg W1142"
+       ],
+       "sections": 18
+      },
+      {
+       "id": "WEST-W1143",
+       "number": "W1143",
+       "raw_names": [
+        "West Bldg W1143"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "WEST-W1146",
+       "number": "W1146",
+       "raw_names": [
+        "West Bldg W1146"
+       ],
+       "sections": 5
+      }
+     ]
+    },
+    {
+     "number": 12,
+     "rooms": [
+      {
+       "id": "WEST-W1222",
+       "number": "W1222",
+       "raw_names": [
+        "West Bldg W1222"
+       ],
+       "sections": 17
+      },
+      {
+       "id": "WEST-W1242",
+       "number": "W1242",
+       "raw_names": [
+        "West Bldg W1242"
+       ],
+       "sections": 15
+      }
+     ]
+    },
+    {
+     "number": 13,
+     "rooms": [
+      {
+       "id": "WEST-W1324",
+       "number": "W1324",
+       "raw_names": [
+        "West Bldg W1324"
+       ],
+       "sections": 5
+      },
+      {
+       "id": "WEST-W1327",
+       "number": "W1327",
+       "raw_names": [
+        "West Bldg W1327"
+       ],
+       "sections": 2
+      },
+      {
+       "id": "WEST-W1337",
+       "number": "W1337",
+       "raw_names": [
+        "West Bldg W1337"
+       ],
+       "sections": 9
+      },
+      {
+       "id": "WEST-W1344",
+       "number": "W1344",
+       "raw_names": [
+        "West Bldg W1344"
+       ],
+       "sections": 11
+      }
+     ]
+    },
+    {
+     "number": 14,
+     "rooms": [
+      {
+       "id": "WEST-W1441",
+       "number": "W1441",
+       "raw_names": [
+        "West Bldg W1441"
+       ],
+       "sections": 28
+      }
+     ]
+    },
+    {
+     "number": 15,
+     "rooms": [
+      {
+       "id": "WEST-W1537",
+       "number": "W1537",
+       "raw_names": [
+        "West Bldg W1537"
+       ],
+       "sections": 5
+      },
+      {
+       "id": "WEST-W1543",
+       "number": "W1543",
+       "raw_names": [
+        "West Bldg W1543"
+       ],
+       "sections": 9
+      }
+     ]
+    },
+    {
+     "number": 16,
+     "rooms": [
+      {
+       "id": "WEST-W1631",
+       "number": "W1631",
+       "raw_names": [
+        "West Bldg W1631"
+       ],
+       "sections": 9
+      },
+      {
+       "id": "WEST-W1639",
+       "number": "W1639",
+       "raw_names": [
+        "West Bldg W1639"
+       ],
+       "sections": 14
+      },
+      {
+       "id": "WEST-W1640",
+       "number": "W1640",
+       "raw_names": [
+        "West Bldg W1640"
+       ],
+       "sections": 14
+      }
+     ]
+    },
+    {
+     "number": 17,
+     "rooms": [
+      {
+       "id": "WEST-W1729",
+       "number": "W1729",
+       "raw_names": [
+        "West Bldg W1729"
+       ],
+       "sections": 24
+      },
+      {
+       "id": "WEST-W1731",
+       "number": "W1731",
+       "raw_names": [
+        "West Bldg W1731"
+       ],
+       "sections": 14
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unparsed_rooms": [
+  {
+   "raw": "North Bldg 11003",
+   "reason": "can't infer floor from room number '11003'",
+   "building": "North Bldg",
+   "sections": 7
+  },
+  {
+   "raw": "North Bldg 11005",
+   "reason": "can't infer floor from room number '11005'",
+   "building": "North Bldg",
+   "sections": 6
+  },
+  {
+   "raw": "North Bldg 11034A",
+   "reason": "can't infer floor from room number '11034A'",
+   "building": "North Bldg",
+   "sections": 7
+  },
+  {
+   "raw": "North Bldg 11034B",
+   "reason": "can't infer floor from room number '11034B'",
+   "building": "North Bldg",
+   "sections": 2
+  },
+  {
+   "raw": "North Bldg 11072",
+   "reason": "can't infer floor from room number '11072'",
+   "building": "North Bldg",
+   "sections": 7
+  },
+  {
+   "raw": "North Bldg 11083",
+   "reason": "can't infer floor from room number '11083'",
+   "building": "North Bldg",
+   "sections": 11
+  },
+  {
+   "raw": "North Bldg 11099",
+   "reason": "can't infer floor from room number '11099'",
+   "building": "North Bldg",
+   "sections": 1
+  },
+  {
+   "raw": "North Bldg 11106",
+   "reason": "can't infer floor from room number '11106'",
+   "building": "North Bldg",
+   "sections": 3
+  },
+  {
+   "raw": "North Bldg M157",
+   "reason": "can't infer floor from room number 'M157'",
+   "building": "North Bldg",
+   "sections": 14
+  },
+  {
+   "raw": "Silberman C-14",
+   "reason": "can't infer floor from room number 'C-14'",
+   "building": "Silberman",
+   "sections": 2
+  },
+  {
+   "raw": "West Bldg WB130",
+   "reason": "can't infer floor from room number 'WB130'",
+   "building": "West Bldg",
+   "sections": 8
+  }
+ ],
+ "non_room_strings": {
+  "TBA": 1694,
+  "Online-Synchronous": 389,
+  "Online-Asynchronous": 168,
+  "(blank)": 66,
+  "Off Campus": 54,
+  "Off Campus GC01": 23
+ }
+}
